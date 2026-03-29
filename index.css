@@ -1,0 +1,599 @@
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="logo" onclick="goHome()">
+    <div class="logo-mark"><svg viewBox="0 0 13 13" fill="none"><circle cx="4" cy="6.5" r="1.6" fill="white"/><circle cx="9" cy="6.5" r="1.6" fill="white"/><path d="M2 4.5L4 2M11 4.5L9 2" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+    <span class="logo-name">Nexus<b>IQ</b></span>
+  </a>
+  <ul class="nav-links">
+    <li><a onclick="goHome()">Home</a></li>
+    <li><a onclick="scrollToSection('how-it-works')">How It Works</a></li>
+    <li><a onclick="goPricing()">Pricing</a></li>
+    <li><a onclick="goBlog()">Blog</a></li>
+    <li><a onclick="goAbout()">About Us</a></li>
+    <li><a onclick="goContact()">Contact</a></li>
+  </ul>
+  <a class="nav-cta" onclick="goContact()">Free Audit &#8594;</a>
+</nav>
+
+<!-- ═══════ HOME PAGE ═══════ -->
+<div id="page-home" class="page active">
+
+  <div class="scroll-section" id="ss">
+    <div class="sticky-stage">
+      <div class="reveal-image" id="ri"></div>
+      <div class="welcome-text" id="wt">
+        <span class="welcome-word">Welcome</span>
+        <div class="welcome-line"></div>
+        <span class="welcome-brand">Nexus<b>IQ</b></span>
+      </div>
+      <div class="hero-text" id="ht">
+        <div class="hero-pre">Goa&#8217;s Restaurant Intelligence Partner</div>
+        <h1 class="hero-h1">
+          <span class="line-plain">We give you the</span>
+          <span class="line-bold">peace of mind</span>
+          <span class="line-italic">you deserve.</span>
+        </h1>
+        <div class="hero-rule"></div>
+        <p class="hero-sub">Run your restaurant. Live your life.<br>NexusIQ handles the data, the platforms, and the strategy.</p>
+        <div class="hero-ctas">
+          <button class="btn-wh" onclick="goContact()">Get Your Free Audit <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6.5 2L11 6l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="btn-gh" onclick="scrollToSection('how-it-works')">See How It Works &#8594;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <div class="below">
+    <div class="pillars">
+      <div class="fade-up"><div class="p-num">01</div><div class="p-title">One team. Everything covered.</div><div class="p-desc">POS analytics, social media, delivery apps, website, SEO &#8212; all managed by a single dedicated team. One invoice. One call.</div></div>
+      <div class="fade-up" style="transition-delay:.1s"><div class="p-num">02</div><div class="p-title">Decisions driven by data.</div><div class="p-desc">We read your POS every month and tell you exactly what&#8217;s working, what&#8217;s not, and what to do next. No guesswork.</div></div>
+      <div class="fade-up" style="transition-delay:.2s"><div class="p-num">03</div><div class="p-title">Built only for hospitality.</div><div class="p-desc">We work exclusively with restaurants and hotels in Goa. This isn&#8217;t a generic agency &#8212; it&#8217;s a specialist partner.</div></div>
+    </div>
+  </div>
+
+  <!-- BENTO -->
+  <div class="bento-section">
+    <div class="bento-inner">
+      <div class="bento-header">
+        <div class="bento-label fade-up">What We Do</div>
+        <h2 class="bento-h2 fade-up" style="transition-delay:.06s">Everything your restaurant<br><strong>needs, in one place.</strong></h2>
+        <p class="bento-sub fade-up" style="transition-delay:.12s">Six specialists. One strategy. All working toward one goal &#8212; your growth.</p>
+      </div>
+      <div class="bento-grid">
+        <div class="bc bc-1 fade-up">
+          <div class="bc-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="3" width="14" height="10" rx="2"/><path d="M6 13v2M12 13v2M4 15h10M6.5 8l2 2 3-3"/></svg></div>
+          <div class="bc-tag">POS Analytics</div>
+          <div class="bc-title">Know your numbers.<br>Every single month.</div>
+          <div class="bc-desc">We deep-dive your point-of-sale data monthly &#8212; surfacing your best sellers, dead weight, and untapped peak windows. Then we tell you exactly what to do about it.</div>
+          <div class="bc-pill-row">
+            <div class="bc-pill active">Revenue trends</div><div class="bc-pill active">Menu performance</div><div class="bc-pill">Peak hours</div><div class="bc-pill">Table turnover</div>
+          </div>
+        </div>
+        <div class="bc bc-2 fade-up" style="transition-delay:.06s">
+          <div class="bc-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg></div>
+          <div class="bc-tag">Social Media</div>
+          <div class="bc-title">Daily content. Zero effort from you.</div>
+          <div class="bc-desc">Shoots, captions, scheduling &#8212; Instagram and Facebook handled every single day.</div>
+        </div>
+        <div class="bc bc-3 fade-up" style="transition-delay:.1s">
+          <div class="bc-stat">3<span>x</span></div>
+          <div class="bc-stat-lbl">Average revenue uplift<br>in the first 90 days</div>
+        </div>
+        <div class="bc bc-4 fade-up" style="transition-delay:.14s">
+          <div class="bc-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M3 9l4 4 8-8"/><circle cx="9" cy="9" r="7"/></svg></div>
+          <div class="bc-tag">Delivery Platforms</div>
+          <div class="bc-title">Swiggy &amp; Zomato, fully optimised.</div>
+          <div class="bc-desc">Menus, photography, pricing strategy, and ranking tactics to drive orders at better margins.</div>
+        </div>
+        <div class="bc bc-5 fade-up" style="transition-delay:.18s">
+          <div class="bc-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="8" cy="8" r="5.5"/><path d="M12.5 12.5L16 16"/></svg></div>
+          <div class="bc-tag">Website &amp; SEO</div>
+          <div class="bc-title">Be found first, every time.</div>
+          <div class="bc-desc">Fast site + Google Business that ranks when tourists search for dinner in Goa.</div>
+        </div>
+        <div class="bc bc-6 fade-up" style="transition-delay:.22s">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+            <div>
+              <div class="bc-tag">Hospitality Only</div>
+              <div class="bc-title" style="font-size:clamp(16px,2vw,22px);margin-top:4px">We only work with<br>restaurants &amp; hotels in Goa.</div>
+              <div class="bc-desc" style="max-width:480px;margin-top:10px">This isn&#8217;t a generic digital agency. We exclusively serve the Goa hospitality sector &#8212; peak season, guests, challenges, all known better than anyone.</div>
+            </div>
+            <div style="text-align:right;flex-shrink:0"><div style="font-size:56px;font-weight:800;letter-spacing:-0.05em;color:#fff;line-height:1">100<span style="color:var(--orange)">%</span></div><div style="font-size:13px;color:#555;margin-top:4px">Goa focused</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEACE + STATS -->
+  <div class="below">
+    <div class="hr-accent"></div>
+    <div class="peace">
+      <h2 class="fade-up">While you&#8217;re living your life,<br><strong>we&#8217;re watching</strong> <em>every number.</em></h2>
+      <p class="fade-up" style="transition-delay:.1s">Most restaurant owners juggle five vendors, chase reports, and guess on social media. NexusIQ ends that.</p>
+      <button class="cta-btn fade-up" style="transition-delay:.2s" onclick="goContact()">Start with a Free Audit &#8594;</button>
+    </div>
+    <div class="stats-r">
+      <div class="s-b fade-up"><div class="s-n">6<span>+</span></div><div class="s-l">In-house specialists</div></div>
+      <div class="s-b fade-up" style="transition-delay:.08s"><div class="s-n">&#8377;0</div><div class="s-l">To start &#8212; free audit</div></div>
+      <div class="s-b fade-up" style="transition-delay:.16s"><div class="s-n">1</div><div class="s-l">Point of contact</div></div>
+      <div class="s-b fade-up" style="transition-delay:.24s"><div class="s-n">100<span>%</span></div><div class="s-l">Goa focused</div></div>
+    </div>
+  </div>
+
+  <!-- WORLD MAP -->
+  <div class="worldmap-section">
+    <div class="worldmap-inner">
+      <div class="worldmap-header">
+        <div class="worldmap-label fade-up">Global Clients, Local Expertise</div>
+        <h2 class="worldmap-h2 fade-up" style="transition-delay:.06s">Our clients trust us<br><strong>from around the world.</strong></h2>
+        <p class="worldmap-sub fade-up" style="transition-delay:.12s">Restaurant and hotel owners based internationally rely on NexusIQ to manage their Goa properties, even when they can&#8217;t be on-site.</p>
+      </div>
+
+      <!-- SVG-based dotted world map -->
+      <div class="map-svg-wrap fade-up" style="transition-delay:.18s">
+        <svg id="worldMap" viewBox="0 0 960 500" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+          <defs>
+            <pattern id="dotPat" x="0" y="0" width="7" height="7" patternUnits="userSpaceOnUse">
+              <circle cx="3.5" cy="3.5" r="1.4" fill="rgba(255,255,255,0.22)"/>
+            </pattern>
+            <mask id="landMask">
+              <!-- North America -->
+              <path fill="white" d="M 95 58 L 102 52 L 115 50 L 132 54 L 148 50 L 162 54 L 175 52 L 188 55 L 200 52 L 212 54 L 222 58 L 230 65 L 234 74 L 232 85 L 226 96 L 218 104 L 214 112 L 218 122 L 220 134 L 214 148 L 206 162 L 198 174 L 192 186 L 186 196 L 178 206 L 168 216 L 158 228 L 148 240 L 140 254 L 132 264 L 124 274 L 116 270 L 108 266 L 104 254 L 98 242 L 92 228 L 88 212 L 86 196 L 84 178 L 86 158 L 84 138 L 80 118 L 82 98 L 88 78 Z"/>
+              <!-- Alaska -->
+              <path fill="white" d="M 50 68 L 62 60 L 76 58 L 84 65 L 86 76 L 78 84 L 64 86 L 52 80 Z"/>
+              <!-- Greenland -->
+              <path fill="white" d="M 210 18 L 235 12 L 262 14 L 278 22 L 284 36 L 278 52 L 262 60 L 240 64 L 218 58 L 206 46 L 204 32 Z"/>
+              <!-- Cuba / Caribbean -->
+              <path fill="white" d="M 196 262 L 210 258 L 220 262 L 218 270 L 206 272 L 196 268 Z"/>
+              <!-- Central America -->
+              <path fill="white" d="M 152 268 L 162 264 L 172 268 L 176 278 L 170 288 L 158 288 L 150 280 Z"/>
+              <!-- South America -->
+              <path fill="white" d="M 174 288 L 188 282 L 204 286 L 218 294 L 228 308 L 234 326 L 238 348 L 234 368 L 228 390 L 216 410 L 200 426 L 182 434 L 164 432 L 148 422 L 138 406 L 134 386 L 138 364 L 144 342 L 148 320 L 152 300 L 160 288 Z"/>
+              <!-- UK & Ireland -->
+              <path fill="white" d="M 378 72 L 390 66 L 400 70 L 402 82 L 394 90 L 382 88 L 374 80 Z"/>
+              <path fill="white" d="M 368 78 L 376 74 L 380 82 L 374 88 L 366 84 Z"/>
+              <!-- Scandinavia / Norway -->
+              <path fill="white" d="M 430 20 L 448 14 L 468 18 L 476 30 L 472 48 L 458 58 L 440 60 L 424 52 L 418 38 L 422 26 Z"/>
+              <!-- Europe mainland -->
+              <path fill="white" d="M 404 54 L 424 48 L 446 52 L 462 58 L 472 68 L 478 80 L 476 94 L 468 106 L 454 114 L 440 118 L 424 116 L 408 108 L 396 96 L 390 82 L 394 68 Z"/>
+              <!-- Iberia -->
+              <path fill="white" d="M 384 100 L 400 94 L 414 98 L 418 112 L 412 126 L 396 132 L 380 126 L 374 112 Z"/>
+              <!-- Italy -->
+              <path fill="white" d="M 444 104 L 454 100 L 462 108 L 460 122 L 448 132 L 438 122 L 436 110 Z"/>
+              <!-- Africa -->
+              <path fill="white" d="M 424 138 L 448 132 L 470 136 L 490 146 L 504 162 L 512 180 L 516 202 L 514 226 L 510 252 L 502 278 L 490 302 L 474 320 L 454 334 L 432 340 L 410 336 L 392 320 L 380 300 L 374 276 L 372 250 L 376 224 L 380 198 L 386 174 L 396 154 L 410 142 Z"/>
+              <!-- Madagascar -->
+              <path fill="white" d="M 516 282 L 526 274 L 536 280 L 538 298 L 530 312 L 518 308 L 510 296 Z"/>
+              <!-- Middle East / Arabian Peninsula -->
+              <path fill="white" d="M 498 122 L 522 116 L 548 118 L 568 128 L 576 142 L 572 158 L 556 166 L 534 168 L 514 160 L 498 146 L 494 132 Z"/>
+              <!-- Turkey -->
+              <path fill="white" d="M 478 96 L 506 90 L 528 94 L 542 104 L 540 118 L 520 124 L 496 122 L 476 112 Z"/>
+              <!-- Russia / Siberia (wide block) -->
+              <path fill="white" d="M 480 30 L 526 20 L 590 16 L 654 18 L 714 24 L 762 32 L 800 40 L 830 48 L 850 56 L 852 70 L 836 82 L 800 88 L 760 90 L 714 86 L 668 82 L 624 80 L 582 82 L 548 86 L 516 86 L 492 80 L 478 68 L 476 50 Z"/>
+              <!-- Kazakhstan / Central Asia -->
+              <path fill="white" d="M 536 88 L 572 84 L 612 88 L 640 98 L 648 114 L 636 128 L 610 134 L 580 130 L 554 120 L 536 108 Z"/>
+              <!-- India subcontinent -->
+              <path fill="white" d="M 596 148 L 618 142 L 640 148 L 654 162 L 658 180 L 652 200 L 638 218 L 620 232 L 600 238 L 580 232 L 566 216 L 562 196 L 568 176 L 580 160 Z"/>
+              <!-- Pakistan -->
+              <path fill="white" d="M 554 126 L 578 120 L 600 126 L 608 140 L 600 152 L 578 156 L 556 148 L 546 136 Z"/>
+              <!-- SE Asia peninsula -->
+              <path fill="white" d="M 678 144 L 704 138 L 728 142 L 744 156 L 748 172 L 740 188 L 720 198 L 698 196 L 678 184 L 668 168 L 668 154 Z"/>
+              <!-- China / East Asia -->
+              <path fill="white" d="M 650 82 L 694 74 L 738 76 L 768 84 L 792 96 L 804 112 L 800 130 L 782 144 L 754 152 L 720 154 L 688 148 L 660 136 L 646 118 L 644 98 Z"/>
+              <!-- Korea -->
+              <path fill="white" d="M 780 96 L 794 90 L 804 98 L 800 112 L 786 118 L 776 108 Z"/>
+              <!-- Japan -->
+              <path fill="white" d="M 808 80 L 822 74 L 834 82 L 830 96 L 816 102 L 804 94 Z"/>
+              <path fill="white" d="M 820 100 L 830 94 L 840 102 L 836 114 L 824 118 L 816 108 Z"/>
+              <!-- Indonesia / Malaysia (islands) -->
+              <path fill="white" d="M 704 220 L 726 216 L 744 222 L 748 234 L 736 242 L 714 240 L 700 232 Z"/>
+              <path fill="white" d="M 750 226 L 774 220 L 790 228 L 788 242 L 770 248 L 752 240 Z"/>
+              <path fill="white" d="M 792 232 L 812 226 L 826 234 L 824 248 L 806 254 L 792 244 Z"/>
+              <!-- Philippines -->
+              <path fill="white" d="M 754 160 L 766 154 L 776 162 L 774 178 L 762 184 L 750 174 Z"/>
+              <!-- Australia -->
+              <path fill="white" d="M 726 310 L 764 302 L 802 304 L 836 316 L 858 336 L 862 360 L 852 386 L 830 406 L 800 418 L 766 420 L 734 410 L 710 390 L 700 364 L 702 336 L 712 318 Z"/>
+              <!-- New Zealand -->
+              <path fill="white" d="M 862 378 L 876 370 L 884 380 L 880 396 L 866 402 L 856 390 Z"/>
+              <!-- Sri Lanka -->
+              <path fill="white" d="M 624 238 L 632 234 L 638 242 L 634 252 L 624 252 L 618 244 Z"/>
+            </mask>
+          </defs>
+
+          <!-- Dot grid masked to land -->
+          <rect width="960" height="500" fill="url(#dotPat)" mask="url(#landMask)"/>
+
+          <!-- City markers with animated pulses -->
+          <!-- London (51.5°N, 0.1°W) -->
+          <g class="city-ping">
+            <circle class="pulse" cx="392" cy="80" r="6" fill="none" stroke="#e07332" stroke-width="1.5"/>
+            <circle cx="392" cy="80" r="4" fill="#e07332" opacity="0.9"/>
+            <circle cx="392" cy="80" r="8" fill="none" stroke="#e07332" stroke-width="1" opacity="0.4"/>
+          </g>
+          <!-- Newcastle (55°N, 1.6°W) -->
+          <g class="city-ping">
+            <circle class="pulse" cx="388" cy="72" r="5" fill="none" stroke="#e07332" stroke-width="1.5"/>
+            <circle cx="388" cy="72" r="3" fill="#e07332" opacity="0.8"/>
+          </g>
+          <!-- Dublin (53.3°N, 6.3°W) -->
+          <g class="city-ping">
+            <circle class="pulse" cx="374" cy="76" r="5" fill="none" stroke="#c084fc" stroke-width="1.5"/>
+            <circle cx="374" cy="76" r="3.5" fill="#c084fc" opacity="0.9"/>
+            <circle cx="374" cy="76" r="7" fill="none" stroke="#c084fc" stroke-width="1" opacity="0.4"/>
+          </g>
+          <!-- Dubai (25.2°N, 55.3°E) -->
+          <g class="city-ping">
+            <circle class="pulse" cx="567" cy="162" r="6" fill="none" stroke="#e8a55a" stroke-width="1.5"/>
+            <circle cx="567" cy="162" r="4.5" fill="#e8a55a" opacity="0.95"/>
+            <circle cx="567" cy="162" r="10" fill="none" stroke="#e8a55a" stroke-width="1" opacity="0.3"/>
+          </g>
+          <!-- Mumbai (19°N, 72.9°E) -->
+          <g class="city-ping">
+            <circle class="pulse" cx="610" cy="192" r="5.5" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+            <circle cx="610" cy="192" r="4" fill="#60a5fa" opacity="0.9"/>
+            <circle cx="610" cy="192" r="9" fill="none" stroke="#60a5fa" stroke-width="1" opacity="0.35"/>
+          </g>
+          <!-- Goa (15.3°N, 74.1°E) - HQ, larger -->
+          <g class="city-ping">
+            <circle class="pulse" cx="614" cy="207" r="8" fill="none" stroke="#4ade80" stroke-width="2"/>
+            <circle cx="614" cy="207" r="6" fill="#4ade80" opacity="1"/>
+            <circle cx="614" cy="207" r="13" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.4"/>
+            <circle cx="614" cy="207" r="18" fill="none" stroke="#4ade80" stroke-width="1" opacity="0.2"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- City legend -->
+      <div class="city-legend fade-up" style="transition-delay:.28s">
+        <div class="city-item c1"><div class="city-dot-lg"></div><div class="city-name-lg">London &amp; Newcastle</div><div class="city-desc-lg">UK owners managing Goa properties remotely</div></div>
+        <div class="city-item c2"><div class="city-dot-lg"></div><div class="city-name-lg">Dubai, UAE</div><div class="city-desc-lg">Hospitality groups with Goa seasonal outlets</div></div>
+        <div class="city-item c3"><div class="city-dot-lg"></div><div class="city-name-lg">Mumbai, India</div><div class="city-desc-lg">Restaurant investors with Goa flagships</div></div>
+        <div class="city-item c4"><div class="city-dot-lg"></div><div class="city-name-lg">Dublin, Ireland</div><div class="city-desc-lg">Expat owners building Goa beach brands</div></div>
+        <div class="city-item c5"><div class="city-dot-lg"></div><div class="city-name-lg">Goa, India — HQ</div><div class="city-desc-lg">Our base. Your home. Where the magic happens.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how below" id="how-it-works">
+    <div class="how-label fade-up">The Process</div>
+    <h2 class="how-h2 fade-up" style="transition-delay:.06s">Up and running <strong>in three steps.</strong></h2>
+    <div class="steps">
+      <div class="step fade-up" style="transition-delay:.05s"><div class="step-num">01</div><div class="step-title">Free Audit</div><div class="step-desc">We review your platforms, POS exports, and social presence &#8212; and give you a no-obligation findings report.</div></div>
+      <div class="step fade-up" style="transition-delay:.15s"><div class="step-num">02</div><div class="step-title">Custom Strategy</div><div class="step-desc">We design a bespoke plan around your goals, peak season, and budget. No templates. No guesswork.</div></div>
+      <div class="step fade-up" style="transition-delay:.25s"><div class="step-num">03</div><div class="step-title">We Take Over</div><div class="step-desc">Your team starts managing everything within 5 working days. One contact, one monthly call, zero stress.</div></div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="testimonial-band">
+    <div class="t-inner fade-up">
+      <div class="t-quote">&#8220;Before NexusIQ, I was spending 3 hours every week chasing <strong>reports and vendors.</strong> Now I get one summary and get back to cooking.&#8221;</div>
+      <div class="t-attr">Rahul S. &mdash; <span>Owner, Spice Route, Candolim</span></div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="below">
+    <div class="peace" style="padding-top:80px">
+      <h2 class="fade-up">Ready to take back<br><strong>your peace</strong> <em>of mind?</em></h2>
+      <p class="fade-up" style="transition-delay:.1s">Start with a completely free, no-commitment audit of your restaurant&#8217;s digital presence. In 60 minutes you&#8217;ll know exactly where you stand.</p>
+      <button class="cta-btn fade-up" style="transition-delay:.2s" onclick="goContact()">Book Your Free Audit &#8594;</button>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter-strip">
+    <div class="nl-inner">
+      <div class="nl-copy">
+        <div class="nl-label">Stay in the Loop</div>
+        <div class="nl-h3">Restaurant insights, straight<br>to your inbox.</div>
+        <div class="nl-sub">Monthly tips on POS analytics, Goa seasonality, and delivery platform tactics.</div>
+      </div>
+      <div class="nl-form">
+        <input class="nl-input" type="email" placeholder="your@email.com">
+        <button class="nl-btn">Subscribe &#8594;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="f-logo-row"><div class="f-lm"><svg viewBox="0 0 13 13" fill="none" width="14" height="14"><circle cx="4" cy="6.5" r="1.6" fill="white"/><circle cx="9" cy="6.5" r="1.6" fill="white"/><path d="M2 4.5L4 2M11 4.5L9 2" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></div><span class="f-ln">Nexus<b>IQ</b></span></div>
+        <p>Goa&#8217;s dedicated restaurant intelligence partner. One team, everything covered, zero stress.</p>
+        <div class="footer-socials">
+          <a class="social-btn" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a>
+          <a class="social-btn" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 2h-3a4 4 0 00-4 4v3H8v4h3v8h4v-8h3l1-4h-4V6a1 1 0 011-1h3z"/></svg></a>
+          <a class="social-btn" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a class="social-btn" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a>POS Analytics</a></li><li><a>Social Media</a></li><li><a>Delivery Platforms</a></li><li><a>Website &amp; SEO</a></li><li><a>Monthly Reports</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a onclick="goHome()">Home</a></li><li><a onclick="scrollToSection('how-it-works')">How It Works</a></li><li><a onclick="goPricing()">Pricing</a></li><li><a onclick="goAbout()">About Us</a></li><li><a onclick="goContact()">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul><li><a onclick="goContact()">Free Audit</a></li><li><a onclick="goBlog()">Blog</a></li><li><a>Case Studies</a></li><li><a>Privacy Policy</a></li><li><a>Terms of Service</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&#169; 2025 NexusIQ. Goa&#8217;s restaurant intelligence partner. All rights reserved.</div><div class="footer-legal"><a>Terms</a><a>Privacy Policy</a></div></div>
+  </footer>
+</div>
+
+<!-- ═══════ PRICING PAGE ═══════ -->
+<div id="page-pricing" class="page">
+  <div class="pricing-hero"><div class="pricing-hero-inner"><span class="pricing-label">Pricing</span><h1 class="pricing-h1">Simple, transparent <strong>pricing.</strong></h1><p class="pricing-hero-sub">No hidden fees. No lock-in contracts. Start with a free audit and upgrade when you&#8217;re ready.</p></div></div>
+  <div class="pricing-body">
+    <div class="pricing-grid">
+      <div class="price-card"><div class="price-name">Starter</div><div class="price-amount">&#8377;0</div><div class="price-period">Free forever</div><div class="price-desc">Perfect for getting started. We analyse your current setup and tell you exactly where you stand.</div><div class="price-features"><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>One-time digital audit</div><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>Full findings report</div><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>Strategy call included</div></div><button class="price-cta light" onclick="goContact()">Get Free Audit</button></div>
+      <div class="price-card featured"><div class="price-badge">Popular</div><div class="price-name">Growth</div><div class="price-amount" style="color:var(--orange)">&#8377;24k</div><div class="price-period">/month</div><div class="price-desc">Our full managed service. Everything covered, one team, one call.</div><div class="price-features"><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>POS analytics &amp; monthly report</div><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>Social media management</div><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>Delivery platform optimisation</div><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>Website &amp; local SEO</div><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>Dedicated account manager</div></div><button class="price-cta dark-btn" onclick="goContact()">Get Started</button></div>
+      <div class="price-card"><div class="price-name">Enterprise</div><div class="price-amount">Custom</div><div class="price-period">Multi-property</div><div class="price-desc">For groups with multiple outlets or hotels needing consolidated reporting.</div><div class="price-features"><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>Everything in Growth</div><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>Multi-property dashboard</div><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>Weekly performance calls</div><div class="price-feature"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l3.5 3.5L12 3"/></svg>Custom integrations</div></div><button class="price-cta light" onclick="goContact()">Talk to Us</button></div>
+    </div>
+    <div style="text-align:center;padding:20px 0 20px"><p style="font-size:15px;color:var(--muted);margin-bottom:20px">Not sure which plan is right for you? Start with our free audit — no commitment needed.</p><button class="cta-btn" onclick="goContact()">Book Your Free Audit &#8594;</button></div>
+  </div>
+  <div class="pricing-faq"><div class="pfaq-inner"><div class="pfaq-label">FAQ</div><h2 class="pfaq-h2">Questions about <strong>pricing?</strong></h2><div class="faq-item"><div class="faq-q">Is there a lock-in contract?</div><div class="faq-a">No. We work on a rolling monthly basis. You can pause or cancel with 30 days notice &#8212; no penalties, no questions asked.</div></div><div class="faq-item"><div class="faq-q">What&#8217;s included in the free audit?</div><div class="faq-a">A full review of your POS data, delivery platform performance, social media presence, and website SEO. You&#8217;ll receive a written findings report and a 45-minute strategy call &#8212; completely free.</div></div><div class="faq-item"><div class="faq-q">How quickly can you get started?</div><div class="faq-a">Once the audit is complete and you choose a plan, we&#8217;re fully onboarded within 5 working days.</div></div><div class="faq-item"><div class="faq-q">Do you work with hotels as well as restaurants?</div><div class="faq-a">Yes &#8212; we serve both. Our Enterprise plan is particularly suited to hotel groups with multiple F&amp;B outlets.</div></div></div></div>
+  <footer class="site-footer"><div class="footer-top"><div class="footer-brand"><div class="f-logo-row"><div class="f-lm"><svg viewBox="0 0 13 13" fill="none" width="14" height="14"><circle cx="4" cy="6.5" r="1.6" fill="white"/><circle cx="9" cy="6.5" r="1.6" fill="white"/><path d="M2 4.5L4 2M11 4.5L9 2" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></div><span class="f-ln">Nexus<b>IQ</b></span></div><p>Goa&#8217;s dedicated restaurant intelligence partner.</p></div><div class="footer-col"><h4>Company</h4><ul><li><a onclick="goHome()">Home</a></li><li><a onclick="goBlog()">Blog</a></li><li><a onclick="goAbout()">About Us</a></li><li><a onclick="goContact()">Contact</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&#169; 2025 NexusIQ. All rights reserved.</div><div class="footer-legal"><a>Privacy</a><a>Terms</a></div></div></footer>
+</div>
+
+<!-- ═══════ BLOG PAGE ═══════ -->
+<div id="page-blog" class="page">
+  <div class="blog-hero">
+    <div class="blog-hero-inner">
+      <div class="blog-hero-label">The NexusIQ Journal</div>
+      <h1 class="blog-hero-h1">Restaurant insights,<br><strong>straight from the field.</strong></h1>
+      <p class="blog-hero-sub">Monthly guides on POS analytics, Goa seasonality, delivery platforms, and everything in between.</p>
+    </div>
+  </div>
+
+  <div class="blog-body">
+    <!-- Featured posts -->
+    <div class="blog-featured">
+      <div class="blog-card" onclick="">
+        <div class="blog-img-placeholder">🍽️</div>
+        <div class="blog-card-body">
+          <div class="blog-cat">POS Analytics</div>
+          <div class="blog-card-title">How to read your POS data like a pro — and what 3 numbers actually matter</div>
+          <div class="blog-card-excerpt">Most restaurant owners open their POS dashboard, feel overwhelmed, and close it again. Here&#8217;s the exact three-metric framework we use every month with our clients to find the money they&#8217;re leaving on the table.</div>
+          <div class="blog-card-meta">March 2025 &nbsp;<span>&#8226;</span>&nbsp; 6 min read</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div class="blog-card" onclick="">
+          <div class="blog-img-placeholder" style="height:140px;font-size:30px">📱</div>
+          <div class="blog-card-body">
+            <div class="blog-cat">Social Media</div>
+            <div class="blog-card-title">The 5-post formula that fills tables on slow Tuesdays in Goa</div>
+            <div class="blog-card-excerpt">Reels, stories, and carousels &#8212; but only these five post types move the needle.</div>
+            <div class="blog-card-meta">Feb 2025 &nbsp;<span>&#8226;</span>&nbsp; 4 min read</div>
+          </div>
+        </div>
+        <div class="blog-card" onclick="">
+          <div class="blog-img-placeholder" style="height:140px;font-size:30px">🛵</div>
+          <div class="blog-card-body">
+            <div class="blog-cat">Delivery Platforms</div>
+            <div class="blog-card-title">Swiggy vs Zomato: which matters more in Goa and why</div>
+            <div class="blog-card-excerpt">We looked at 12 months of data across our client base. The answer might surprise you.</div>
+            <div class="blog-card-meta">Jan 2025 &nbsp;<span>&#8226;</span>&nbsp; 5 min read</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- More posts grid -->
+    <div class="blog-grid-3">
+      <div class="blog-card sm" onclick="">
+        <div class="blog-img-placeholder" style="height:140px;font-size:28px">📊</div>
+        <div class="blog-card-body">
+          <div class="blog-cat">Strategy</div>
+          <div class="blog-card-title">Peak season prep: the 8-week checklist every Goa restaurant needs</div>
+          <div class="blog-card-meta">Dec 2024 &nbsp;<span>&#8226;</span>&nbsp; 7 min read</div>
+        </div>
+      </div>
+      <div class="blog-card sm" onclick="">
+        <div class="blog-img-placeholder" style="height:140px;font-size:28px">🔍</div>
+        <div class="blog-card-body">
+          <div class="blog-cat">SEO</div>
+          <div class="blog-card-title">Why "best restaurant in Goa" is the wrong keyword to target</div>
+          <div class="blog-card-meta">Nov 2024 &nbsp;<span>&#8226;</span>&nbsp; 5 min read</div>
+        </div>
+      </div>
+      <div class="blog-card sm" onclick="">
+        <div class="blog-img-placeholder" style="height:140px;font-size:28px">💰</div>
+        <div class="blog-card-body">
+          <div class="blog-cat">Revenue</div>
+          <div class="blog-card-title">Menu engineering 101: how we added ₹80k/month to one client</div>
+          <div class="blog-card-meta">Oct 2024 &nbsp;<span>&#8226;</span>&nbsp; 6 min read</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter at bottom of blog -->
+  <div class="newsletter-strip">
+    <div class="nl-inner">
+      <div class="nl-copy">
+        <div class="nl-label">Stay in the Loop</div>
+        <div class="nl-h3">Restaurant insights, straight<br>to your inbox.</div>
+        <div class="nl-sub">Monthly tips on POS analytics, Goa seasonality, and delivery platform tactics.</div>
+      </div>
+      <div class="nl-form">
+        <input class="nl-input" type="email" placeholder="your@email.com">
+        <button class="nl-btn">Subscribe &#8594;</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer"><div class="footer-top"><div class="footer-brand"><div class="f-logo-row"><div class="f-lm"><svg viewBox="0 0 13 13" fill="none" width="14" height="14"><circle cx="4" cy="6.5" r="1.6" fill="white"/><circle cx="9" cy="6.5" r="1.6" fill="white"/><path d="M2 4.5L4 2M11 4.5L9 2" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></div><span class="f-ln">Nexus<b>IQ</b></span></div><p>Goa&#8217;s dedicated restaurant intelligence partner.</p></div><div class="footer-col"><h4>Company</h4><ul><li><a onclick="goHome()">Home</a></li><li><a onclick="goPricing()">Pricing</a></li><li><a onclick="goAbout()">About Us</a></li><li><a onclick="goContact()">Contact</a></li></ul></div><div class="footer-col"><h4>Blog</h4><ul><li><a>POS Analytics</a></li><li><a>Social Media</a></li><li><a>Delivery Platforms</a></li><li><a>SEO &amp; Website</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&#169; 2025 NexusIQ. All rights reserved.</div><div class="footer-legal"><a>Privacy</a><a>Terms</a></div></div></footer>
+</div>
+
+<!-- ═══════ ABOUT PAGE ═══════ -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <div class="about-hero-inner">
+      <div>
+        <div class="about-hero-label">Our Story</div>
+        <h1 class="about-hero-h1">We built the team<br><strong>we wished</strong> <em>existed.</em></h1>
+        <p class="about-hero-p">NexusIQ was born out of frustration. After watching Goa&#8217;s best restaurant owners drown in spreadsheets, vendor calls, and guesswork &#8212; we decided to build something that actually worked. One specialist team. One invoice. Complete clarity.</p>
+        <div class="about-hero-stats">
+          <div class="ahs"><div class="ahs-n">6<span>+</span></div><div class="ahs-l">In-house specialists</div></div>
+          <div class="ahs"><div class="ahs-n">3<span>x</span></div><div class="ahs-l">Avg. revenue uplift in 90 days</div></div>
+          <div class="ahs"><div class="ahs-n">100<span>%</span></div><div class="ahs-l">Goa hospitality focused</div></div>
+          <div class="ahs"><div class="ahs-n">&#8377;0</div><div class="ahs-l">Cost to start — free audit</div></div>
+        </div>
+      </div>
+      <div class="about-hero-visual">
+        <div class="about-img-stack">
+          <div class="about-img-main">
+            <div style="text-align:center;padding:32px">
+              <div style="font-size:64px;margin-bottom:16px">🍽️</div>
+              <div style="font-size:14px;color:rgba(255,255,255,0.4);font-weight:500">Panaji, Goa</div>
+            </div>
+          </div>
+          <div class="about-img-accent">
+            <div class="aia-label">Our Promise</div>
+            <div class="aia-text">One team.<br>Zero vendors.<br>Total clarity.</div>
+            <div class="aia-dot-row">
+              <div class="aia-dot" style="background:#e07332"></div>
+              <div class="aia-dot" style="background:#60a5fa"></div>
+              <div class="aia-dot" style="background:#4ade80"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-body">
+    <div class="about-mission">
+      <div class="about-mission-grid">
+        <div>
+          <div class="about-section-label">Our Mission</div>
+          <h2 class="about-section-h2">We exist to give restaurant owners back their <strong>time and clarity.</strong></h2>
+          <p class="about-section-p">The Goa restaurant industry is one of the most dynamic and demanding in the world. Seasonal surges, international guests, hyper-competitive delivery platforms, and the pressure to maintain a social presence &#8212; all while actually running a kitchen.</p>
+          <p class="about-section-p">NexusIQ was built to remove that weight. We embed ourselves in your operation, speak the language of your POS, and translate everything into a single monthly conversation with one person.</p>
+          <p class="about-section-p">Our clients don&#8217;t wake up on Sunday morning thinking about their Zomato rank. They wake up thinking about the thing they built this restaurant for.</p>
+        </div>
+        <div>
+          <div class="about-section-label" style="margin-top:8px">What We Stand For</div>
+          <div class="about-values">
+            <div class="value-item"><div class="value-num">01</div><div class="value-copy"><div class="v-title">Radical simplicity</div><div class="v-desc">We collapse complexity. One team, one invoice, one monthly call. No exceptions.</div></div></div>
+            <div class="value-item"><div class="value-num">02</div><div class="value-copy"><div class="v-title">Data over gut feel</div><div class="v-desc">Every recommendation we make is backed by your own numbers, not industry guesswork.</div></div></div>
+            <div class="value-item"><div class="value-num">03</div><div class="value-copy"><div class="v-title">Hospitality-only focus</div><div class="v-desc">We don&#8217;t take fintech clients or e-commerce brands. Goa hospitality is all we do.</div></div></div>
+            <div class="value-item"><div class="value-num">04</div><div class="value-copy"><div class="v-title">No lock-in, ever</div><div class="v-desc">We earn your business month by month. You should stay because we&#8217;re delivering, not because a contract forces you to.</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div class="about-team">
+    <div class="about-team-inner">
+      <div class="about-team-header">
+        <div class="at-label">The Team</div>
+        <h2 class="at-h2">Six specialists.<br><strong>One shared goal.</strong></h2>
+        <p class="at-sub">Every person at NexusIQ was hired for one purpose: to make a Goa restaurant owner&#8217;s life easier.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-avatar">👨‍💼</div><div class="team-name">Arjun Mehta</div><div class="team-role">Founder &amp; Strategy</div><div class="team-bio">Former F&amp;B director at a leading Goa resort group. Built NexusIQ after managing 6 venues at once with zero intelligence infrastructure.</div></div>
+        <div class="team-card"><div class="team-avatar">👩‍💻</div><div class="team-name">Priya Naik</div><div class="team-role">Head of POS &amp; Data</div><div class="team-bio">Specialises in restaurant analytics across Petpooja, Ezetap, and Posist. Turns raw sales data into monthly action plans.</div></div>
+        <div class="team-card"><div class="team-avatar">📸</div><div class="team-name">Rohan D&#8217;Souza</div><div class="team-role">Social Media Lead</div><div class="team-bio">Built the Instagram presence for three of Calangute&#8217;s top-rated restaurants. Creates content that gets people off the couch and into your chairs.</div></div>
+        <div class="team-card"><div class="team-avatar">🛵</div><div class="team-name">Kavita Sharma</div><div class="team-role">Delivery Platform Manager</div><div class="team-bio">Ex-Zomato partner success team. Knows every algorithm tweak and pricing lever across both major platforms in the Goa market.</div></div>
+        <div class="team-card"><div class="team-avatar">🔍</div><div class="team-name">Dev Patel</div><div class="team-role">SEO &amp; Web</div><div class="team-bio">Manages Google Business profiles and website SEO for 14 Goa properties. Gets your restaurant ranking before a tourist even opens Zomato.</div></div>
+        <div class="team-card"><div class="team-avatar">📞</div><div class="team-name">Sneha Rao</div><div class="team-role">Client Success</div><div class="team-bio">Your single point of contact. Sneha runs every monthly check-in and makes sure nothing falls through the cracks across any service we deliver.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About CTA -->
+  <div class="below">
+    <div class="peace" style="padding-top:80px">
+      <h2 class="fade-up">Ready to meet the<br><strong>team in person?</strong></h2>
+      <p class="fade-up" style="transition-delay:.1s">Book a free audit and we&#8217;ll walk you through exactly how NexusIQ would work for your restaurant.</p>
+      <button class="cta-btn fade-up" style="transition-delay:.2s" onclick="goContact()">Book Your Free Audit &#8594;</button>
+    </div>
+  </div>
+
+  <footer class="site-footer"><div class="footer-top"><div class="footer-brand"><div class="f-logo-row"><div class="f-lm"><svg viewBox="0 0 13 13" fill="none" width="14" height="14"><circle cx="4" cy="6.5" r="1.6" fill="white"/><circle cx="9" cy="6.5" r="1.6" fill="white"/><path d="M2 4.5L4 2M11 4.5L9 2" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg></div><span class="f-ln">Nexus<b>IQ</b></span></div><p>Goa&#8217;s dedicated restaurant intelligence partner.</p></div><div class="footer-col"><h4>Company</h4><ul><li><a onclick="goHome()">Home</a></li><li><a onclick="goPricing()">Pricing</a></li><li><a onclick="goBlog()">Blog</a></li><li><a onclick="goContact()">Contact</a></li></ul></div><div class="footer-col"><h4>Our Team</h4><ul><li><a>Strategy</a></li><li><a>POS &amp; Data</a></li><li><a>Social Media</a></li><li><a>Delivery Platforms</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">&#169; 2025 NexusIQ. All rights reserved.</div><div class="footer-legal"><a>Privacy</a><a>Terms</a></div></div></footer>
+</div>
+
+<!-- ═══════ CONTACT PAGE ═══════ -->
+<div id="page-contact" class="page">
+  <div class="contact-inner">
+    <div class="contact-copy">
+      <h1>Let&#8217;s start your<br><em>free audit.</em></h1>
+      <p>We&#8217;re available for questions, new clients, and partnership enquiries. Send us a message and we&#8217;ll be back within 24 hours.</p>
+      <div class="contact-details">
+        <div class="contact-detail-row"><div class="cd-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M13.5 11.5l-2-2-1.5 1.5S8 10.5 6 8.5s-2.5-4-2.5-4L5 3l-2-2L1.5 2.5C1.5 2.5 2 9 7.5 14.5S14.5 14.5 14.5 14.5L13.5 11.5z"/></svg></div><div><div class="cd-label">Phone</div><div class="cd-value">+91 98765 43210</div></div></div>
+        <div class="contact-detail-row"><div class="cd-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><path d="M1.5 5l6.5 4.5L14.5 5"/></svg></div><div><div class="cd-label">Email</div><div class="cd-value">hello@nexusiq.in</div></div></div>
+        <div class="contact-detail-row"><div class="cd-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="8" cy="7" r="2.5"/><path d="M8 2C5.24 2 3 4.24 3 7c0 4 5 8 5 8s5-4 5-8c0-2.76-2.24-5-5-5z"/></svg></div><div><div class="cd-label">Location</div><div class="cd-value">Panaji, Goa, India</div></div></div>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <div class="form-row"><div class="form-group"><label>First Name</label><input class="form-input" type="text" placeholder="First Name"></div><div class="form-group"><label>Last Name</label><input class="form-input" type="text" placeholder="Last Name"></div></div>
+      <div class="form-group"><label>Email</label><input class="form-input" type="email" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Restaurant Name</label><input class="form-input" type="text" placeholder="e.g. Spice Route, Candolim"></div>
+      <div class="form-group"><label>Message</label><textarea class="form-input" placeholder="Tell us about your restaurant..."></textarea></div>
+      <button class="form-submit">Send Message &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* PAGE ROUTING */
+function showPage(id){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+  var nav=document.getElementById('nav');
+  if(id==='page-contact'){nav.classList.add('shown','dark-solid');nav.classList.remove('solid')}
+  else if(id==='page-pricing'||id==='page-blog'||id==='page-about'){nav.classList.add('shown','solid');nav.classList.remove('dark-solid')}
+  else{nav.classList.remove('dark-solid','solid')}
+  // Reinit fade-ups for new page
+  setTimeout(function(){
+    document.querySelectorAll('#'+id+' .fade-up:not(.on)').forEach(function(el){
+      var rect=el.getBoundingClientRect();
+      if(rect.top<window.innerHeight){el.classList.add('on')}
+    });
+  },100);
+}
+function goHome(){showPage('page-home');setTimeout(function(){tick();},50)}
+function goContact(){showPage('page-contact')}
+function goPricing(){showPage('page-pricing')}
+function goBlog(){showPage('page-blog')}
+function goAbout(){showPage('page-about')}
+function scrollToSection(id){goHome();setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});},80)}
+
+/* HERO SCROLL */
+(function(){
+  var RANGE=2800;
+  function ease3(t){return t<.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1}
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+  function lerp(a,b,t){return a+(b-a)*t}
+  function inv(a,b,v){return clamp((v-a)/(b-a),0,1)}
+  var ri=document.getElementById("ri"),nav=document.getElementById("nav"),wt=document.getElementById("wt"),ht=document.getElementById("ht");
+  window.tick=function(){
+    if(!document.getElementById('page-home').classList.contains('active'))return;
+    var sy=window.scrollY,raw=clamp(sy/RANGE,0,1),p1=ease3(inv(0.12,0.62,raw)),p2=ease3(inv(0.55,0.82,raw));
+    var x1=lerp(26,0,p1),y1=lerp(22,0,p1),x2=lerp(74,100,p1),y2=lerp(78,100,p1);
+    ri.style.clipPath=ri.style.webkitClipPath="polygon("+x1+"% "+y1+"%, "+x2+"% "+y1+"%, "+x2+"% "+y2+"%, "+x1+"% "+y2+"%)";
+    ri.style.filter="brightness("+lerp(0.9,0.78,p1)+")";
+    wt.style.opacity=clamp(1-p1*6,0,1);
+    ht.style.opacity=p2;
+    ht.classList.toggle("visible",p2>0.02);
+    nav.classList.toggle("shown",p2>0.15);
+    nav.classList.toggle("solid",sy>RANGE+window.innerHeight-80);
+    nav.classList.toggle("dark-solid",false);
+  };
+  window.addEventListener("scroll",window.tick,{passive:true});
+  window.tick();
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");obs.unobserve(e.target)}})},{threshold:0.1});
+  document.querySelectorAll(".fade-up").forEach(function(el){obs.observe(el)});
+})();
+</script>
+</body>
+</html>
