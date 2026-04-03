@@ -127,72 +127,79 @@ nav.scrolled.on-dark .nav-hamburger span { background: var(--black); }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 .white-card { background: var(--white); border-radius: 28px; box-shadow: var(--card-shadow); border: 1px solid rgba(0,0,0,0.055); }
 
-.subpage-texture {
-  background-color: var(--cream);
-  background-image: linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
 /* ─── HERO ─── */
+/* Grid only on the hero section itself, not the whole page */
 .hero {
-  min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center;
   justify-content: center; text-align: center;
-  padding: calc(var(--nav-height) + 80px) 24px 100px;
+  padding: calc(var(--nav-height) + 40px) 24px 60px;
   background: var(--white);
+  position: relative;
+}
+/* Grid restricted to hero only */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px);
   background-size: 52px 52px;
-  position: relative;
+  pointer-events: none;
+  z-index: 0;
 }
-.hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 36px; }
-.hero h1 { font-family: var(--font-head); font-size: clamp(48px,7.5vw,96px); font-weight: 800; line-height: 0.97; letter-spacing: -3px; color: var(--black); max-width: 940px; }
-.hero h1 .underline-orange { display: block; position: relative; padding-bottom: 20px; }
+.hero > * { position: relative; z-index: 1; }
+
+.hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 24px; }
+.hero h1 { font-family: var(--font-head); font-size: clamp(38px,5.5vw,76px); font-weight: 800; line-height: 0.97; letter-spacing: -3px; color: var(--black); max-width: 860px; }
+
+/* Underline — flatter, wider wave */
+.hero h1 .underline-orange { display: block; position: relative; padding-bottom: 18px; }
 .hero h1 .underline-orange::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 12px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 24' preserveAspectRatio='none'%3E%3Cpath d='M0,20 Q100,2 200,14 Q320,26 440,8 Q560,-2 680,16 Q740,22 800,10' stroke='%23E07020' stroke-width='11' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  content: ''; position: absolute; bottom: 0; left: -2%; right: -2%; height: 10px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 20' preserveAspectRatio='none'%3E%3Cpath d='M0,16 Q112,6 225,13 Q337,20 450,10 Q562,0 675,11 Q787,18 900,8' stroke='%23E07020' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/100% 100% no-repeat;
   animation: lineGrow2 1.4s cubic-bezier(0.25,0.46,0.45,0.94) 0.6s both;
   transform-origin: left;
 }
 @keyframes lineGrow2 { from { transform: scaleX(0); opacity: 0; } to { transform: scaleX(1); opacity: 1; } }
 
-/* "you deserve." — reduced italic, slightly upright Playfair */
+/* "you deserve." — italic Playfair */
 .hero h1 .muted-line {
   display: block;
   font-family: var(--font-serif);
-  font-style: normal;
+  font-style: italic;
   font-weight: 400;
-  color: #888;
-  margin-top: 14px;
-  font-size: 0.72em;
+  color: #999;
+  margin-top: 10px;
+  font-size: 0.68em;
   letter-spacing: -1px;
 }
 
 .hero-sub-wrap {
-  margin-top: 42px;
-  margin-bottom: 44px;
-  max-width: 560px;
+  margin-top: 28px;
+  margin-bottom: 32px;
+  max-width: 480px;
   text-align: center;
 }
 .hero-sub-kicker {
   font-family: var(--font-head);
-  font-size: clamp(14px, 1.5vw, 17px);
+  font-size: clamp(13px, 1.3vw, 15px);
   font-weight: 700;
   color: var(--black);
   letter-spacing: -0.2px;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 .hero-sub-body {
-  font-size: clamp(14px, 1.5vw, 16px);
+  font-size: clamp(13px, 1.3vw, 14.5px);
   color: var(--gray-600);
-  line-height: 1.7;
+  line-height: 1.65;
   font-weight: 400;
 }
 
 .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--white); padding: 16px 32px; border-radius: 999px; font-family: var(--font-body); font-size: 14.5px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.16); }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--white); padding: 14px 28px; border-radius: 999px; font-family: var(--font-body); font-size: 13.5px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.16); }
 .btn-primary:hover { background: var(--orange); transform: translateY(-2px); }
-.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--black); padding: 16px 32px; border-radius: 999px; font-family: var(--font-body); font-size: 14.5px; font-weight: 600; text-decoration: none; cursor: pointer; border: 1.5px solid var(--gray-200); transition: border-color 0.2s, color 0.2s; }
+.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--black); padding: 14px 28px; border-radius: 999px; font-family: var(--font-body); font-size: 13.5px; font-weight: 600; text-decoration: none; cursor: pointer; border: 1.5px solid var(--gray-200); transition: border-color 0.2s, color 0.2s; }
 .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
 
 /* ─── TICKER — seamless, no gap ─── */
@@ -264,7 +271,7 @@ nav.scrolled.on-dark .nav-hamburger span { background: var(--black); }
   min-width: 0; overflow: hidden;
 }
 .bc.visible { opacity: 1; transform: translateY(0); }
-.bc:hover { border-color: rgba(224,112,32,0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+.bc:hover { border-color: rgba(0,0,0,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
 .bc-pos      { grid-column: 1; grid-row: 1 / 3; display: flex; flex-direction: column; justify-content: space-between; }
 .bc-graph    { grid-column: 2; grid-row: 1; }
 .bc-stat     { grid-column: 3; grid-row: 1; display: flex; flex-direction: column; justify-content: flex-end; }
@@ -424,9 +431,6 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
 .page-hero {
   padding: calc(var(--nav-height) + 60px) 24px 80px;
   background: var(--white);
-  background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px);
-  background-size: 40px 40px;
   border-bottom: 1px solid var(--gray-200);
   position: relative;
 }
@@ -447,8 +451,8 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
   background-size: 40px 40px;
 }
 
-/* ════ SERVICES PAGE — redesigned ════ */
-/* Curved top grid effect on hero */
+/* ════ SERVICES PAGE ════ */
+/* Dark hero — grid only in the dark top section */
 .services-page-hero {
   padding: calc(var(--nav-height) + 60px) 24px 0;
   position: relative;
@@ -460,7 +464,6 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
   background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 40px 40px;
-  /* Curved mask — large white circle from below creating curved grid top */
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
 }
@@ -473,7 +476,8 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
 .services-hero-content h1 { font-family: var(--font-head); font-size: clamp(36px,6vw,72px); font-weight: 800; letter-spacing: -2.5px; line-height: 1; color: var(--white); margin-bottom: 18px; }
 .services-hero-content h1 em { font-style: italic; color: var(--orange); }
 .services-hero-content p { font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 540px; }
-/* Curved bottom of the dark hero */
+
+/* Curved bottom using cream color */
 .services-hero-curve {
   position: relative; z-index: 2;
   height: 80px;
@@ -482,29 +486,34 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
   margin-top: -2px;
 }
 
+/* ── Service page body: white, no grid, just clean ── */
 .services-page-body {
-  background: var(--cream);
-  background-image: linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background: var(--white);
   padding: 32px 24px 100px;
 }
 
-/* Service cards — white with elevated shadow, orange glow on hover */
-.services-list-full { display: flex; flex-direction: column; gap: 16px; }
+/* The big wrapper box for all service cards */
+.services-all-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 32px;
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 12px 48px rgba(0,0,0,0.06);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Service cards — flat inside the big box, divided by lines */
+.services-list-full { display: flex; flex-direction: column; }
 .service-card-full {
   padding: 40px 44px;
   background: var(--white);
-  border-radius: 28px;
-  box-shadow: var(--card-shadow);
-  border: 1px solid rgba(0,0,0,0.055);
-  transition: box-shadow 0.35s, border-color 0.35s, transform 0.35s;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: background 0.25s;
 }
-.service-card-full:hover {
-  box-shadow: 0 8px 32px rgba(224,112,32,0.12), 0 24px 64px rgba(224,112,32,0.08), 0 2px 8px rgba(0,0,0,0.06);
-  border-color: rgba(224,112,32,0.25);
-  transform: translateY(-2px);
-}
+.service-card-full:last-child { border-bottom: none; }
+.service-card-full:hover { background: #fafafa; }
 .service-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
 .service-card-num { font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--orange); }
 .service-card-title { font-family: var(--font-head); font-size: clamp(20px,2.5vw,28px); font-weight: 800; letter-spacing: -0.5px; color: var(--black); line-height: 1.15; margin-bottom: 10px; margin-top: 6px; }
@@ -514,7 +523,7 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
 .service-card-link { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 700; color: var(--orange); text-decoration: none; padding: 10px 22px; border: 1.5px solid rgba(224,112,32,0.25); border-radius: 999px; transition: background 0.2s; cursor: pointer; }
 .service-card-link:hover { background: rgba(224,112,32,0.06); border-color: var(--orange); }
 
-/* ─── PRICING — uplift animation ─── */
+/* ─── PRICING ─── */
 .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
 .pricing-card {
   padding: 40px 36px;
@@ -563,12 +572,52 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
 
 /* ─── BLOG ─── */
 .blog-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; margin-bottom: 18px; }
-.blog-card { padding: 0; overflow: hidden; cursor: pointer; transition: box-shadow 0.3s; background: var(--white); border-radius: 28px; box-shadow: var(--card-shadow); border: 1px solid rgba(0,0,0,0.055); }
-.blog-card:hover { box-shadow: var(--card-shadow-hover); }
-.blog-img { height: 220px; background: linear-gradient(135deg, #f0ede8, #e8e4dc); display: flex; align-items: center; justify-content: center; }
-.blog-img-icon { width: 48px; height: 48px; background: rgba(224,112,32,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
-.blog-img-icon svg { width: 22px; height: 22px; stroke: var(--orange); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.blog-card { padding: 0; overflow: hidden; cursor: pointer; transition: box-shadow 0.3s, transform 0.3s; background: var(--white); border-radius: 28px; box-shadow: var(--card-shadow); border: 1px solid rgba(0,0,0,0.055); }
+.blog-card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-3px); }
+
+/* Orange gradient blog images */
+.blog-img {
+  height: 220px;
+  background: linear-gradient(135deg, #E07020 0%, #C05818 40%, #8B3A10 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.blog-img::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(224,112,32,0.9) 0%, rgba(80,30,5,0.95) 100%);
+}
+.blog-img-icon {
+  width: 52px; height: 52px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+}
+.blog-img-icon svg { width: 24px; height: 24px; stroke: rgba(255,255,255,0.9); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Blog category watermark text in bg */
+.blog-img-bg-text {
+  position: absolute;
+  bottom: -8px; right: 10px;
+  font-family: var(--font-head);
+  font-size: 72px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  letter-spacing: -4px;
+  user-select: none;
+  z-index: 0;
+}
+
 .blog-img.featured { height: 300px; }
+.blog-img.featured-alt { background: linear-gradient(135deg, #8B3A10 0%, #E07020 60%, #C05818 100%); }
+.blog-img.alt2 { background: linear-gradient(135deg, #C05818 0%, #8B3A10 100%); }
+.blog-img.alt3 { background: linear-gradient(160deg, #E07020 0%, #9B4A20 100%); }
+.blog-img.alt4 { background: linear-gradient(135deg, #7A3010 0%, #C05818 100%); }
+
 .blog-content { padding: 28px 32px; }
 .blog-meta { display: flex; gap: 14px; font-size: 11.5px; color: var(--gray-400); margin-bottom: 12px; font-weight: 500; }
 .blog-tag { color: var(--orange); font-weight: 700; }
@@ -576,7 +625,7 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
 .blog-excerpt { font-size: 13.5px; color: var(--gray-600); line-height: 1.65; }
 .blog-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
 
-/* ─── FAQ — two-column layout like reference ─── */
+/* ─── FAQ ─── */
 .faq-section-wrap { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
 .faq-left-col h2 { font-family: var(--font-head); font-size: clamp(28px,3.5vw,42px); font-weight: 800; letter-spacing: -1.5px; color: var(--black); line-height: 1.1; margin-bottom: 14px; }
 .faq-left-col p { font-size: 14px; color: var(--gray-400); line-height: 1.7; }
@@ -593,10 +642,17 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
 .faq-item.open .faq-a { max-height: 300px; padding-bottom: 22px; }
 .faq-a p { font-size: 14px; color: var(--gray-600); line-height: 1.75; }
 
-/* ─── ABOUT page — image 4 style ─── */
-.about-page-body { background: var(--cream); background-image: linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px); background-size: 40px 40px; padding: 72px 24px 0; }
+/* ────────────────────────────────
+   ABOUT PAGE — values + image like reference image 2
+   ──────────────────────────────── */
+.about-page-body {
+  background: var(--cream);
+  background-image: linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  padding: 72px 24px 0;
+}
 
-/* Mission section — centered like reference */
 .about-mission-wrap { max-width: 720px; margin: 0 auto; text-align: center; margin-bottom: 80px; }
 .about-mission-wrap h2 { font-family: var(--font-head); font-size: clamp(26px,3.5vw,42px); font-weight: 800; letter-spacing: -1.5px; color: var(--black); line-height: 1.1; margin-bottom: 18px; }
 .about-mission-wrap h2 em { font-style: italic; color: var(--orange); }
@@ -604,166 +660,229 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
 .about-eyebrow-line { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: var(--orange); font-family: var(--font-head); margin-bottom: 24px; }
 .about-eyebrow-line::before, .about-eyebrow-line::after { content: ''; display: block; width: 24px; height: 1px; background: var(--orange); opacity: 0.4; }
 
-/* Services-around-image layout */
-.about-services-wrap { position: relative; max-width: 1100px; margin: 0 auto; padding-bottom: 80px; }
-.about-central-img {
-  width: 340px; height: 420px; border-radius: 28px; overflow: hidden;
+/* ── Values image layout — matching reference image 2 exactly ── */
+.about-values-outer {
+  max-width: 1200px;
   margin: 0 auto;
-  position: relative; z-index: 2;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-  border: 1px solid rgba(0,0,0,0.08);
+  padding: 0 24px 80px;
 }
-.about-central-img-inner {
-  width: 100%; height: 100%;
-  background: linear-gradient(160deg, #1a1a1a 0%, #2a2a2a 40%, #111 100%);
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-  padding: 32px;
+
+.about-values-layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: center;
   position: relative;
 }
-.about-img-overlay-text {
+
+/* Connector lines from values to central image */
+.about-val-left, .about-val-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about-val-item {
+  padding: 28px 0;
+  position: relative;
+}
+.about-val-item-inner { display: flex; flex-direction: column; }
+.about-val-item-icon-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.about-val-item-icon-row svg { width: 17px; height: 17px; stroke: var(--orange); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.about-val-title { font-family: var(--font-head); font-size: 15px; font-weight: 800; color: var(--black); letter-spacing: -0.3px; }
+.about-val-desc { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+
+/* Left values — right-aligned text with connector line going right */
+.about-val-left .about-val-item { text-align: right; padding-right: 52px; }
+.about-val-left .about-val-item-icon-row { justify-content: flex-end; }
+
+/* Right values — left-aligned text with connector line going left */
+.about-val-right .about-val-item { text-align: left; padding-left: 52px; }
+
+/* Connector lines */
+.about-val-left .about-val-item::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 50%;
+  width: 40px; height: 1px;
+  background: linear-gradient(to right, transparent, var(--orange));
+  opacity: 0.5;
+}
+.about-val-right .about-val-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 40px; height: 1px;
+  background: linear-gradient(to left, transparent, var(--orange));
+  opacity: 0.5;
+}
+
+/* Central image */
+.about-central-card {
+  width: 320px;
+  height: 420px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1a1a1a 0%, #2a2a2a 40%, #111 100%);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 32px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.about-central-bg-circles {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%);
+  width: 240px; height: 240px;
+}
+.about-central-bg-circles circle { fill: none; stroke: rgba(224,112,32,0.12); }
+
+.about-central-logo {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%);
+  text-align: center;
+}
+.about-central-logo-mark { font-family: var(--font-head); font-size: 60px; font-weight: 800; color: rgba(255,255,255,0.05); letter-spacing: -4px; line-height: 1; }
+.about-central-logo-sub { font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 6px; }
+
+.about-portfolio-btn {
+  position: relative; z-index: 2;
   background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 999px;
-  padding: 10px 24px;
+  padding: 11px 26px;
   font-family: var(--font-head);
   font-size: 13px;
   font-weight: 700;
-  color: rgba(255,255,255,0.9);
-  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.3px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
   text-decoration: none;
   display: inline-flex; align-items: center; gap: 6px;
 }
-.about-img-overlay-text:hover { background: rgba(224,112,32,0.2); border-color: rgba(224,112,32,0.4); color: var(--orange); }
-.about-img-bg-circles {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 220px; height: 220px;
+.about-portfolio-btn:hover {
+  background: rgba(224,112,32,0.2);
+  border-color: rgba(224,112,32,0.4);
+  color: var(--orange);
 }
-.about-img-bg-circles circle { fill: none; stroke: rgba(224,112,32,0.15); }
-
-/* 6 value items around the image */
-.about-values-grid {
-  display: grid;
-  grid-template-columns: 1fr 340px 1fr;
-  gap: 0;
-  align-items: start;
-}
-.about-values-col { display: flex; flex-direction: column; gap: 36px; padding: 20px 48px; }
-.about-val-item {}
-.about-val-item-icon { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.about-val-item-icon svg { width: 18px; height: 18px; stroke: var(--orange); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-.about-val-item-title { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--black); letter-spacing: -0.3px; }
-.about-val-item-desc { font-size: 13.5px; color: var(--gray-600); line-height: 1.65; }
-.about-val-item-right { text-align: right; }
-.about-val-item-right .about-val-item-icon { justify-content: flex-end; }
 
 /* Stats row */
-.about-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.07); border-radius: 20px; overflow: hidden; margin: 0 auto 0; max-width: 1100px; }
+.about-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.07); border-radius: 20px; overflow: hidden; margin: 0 auto; max-width: 1100px; }
 .about-stat { background: var(--white); padding: 36px 28px; text-align: center; }
 .about-stat-icon { width: 40px; height: 40px; background: rgba(224,112,32,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
 .about-stat-icon svg { width: 18px; height: 18px; stroke: var(--orange); fill: none; stroke-width: 1.8; }
 .about-stat-num { font-family: var(--font-head); font-size: clamp(28px,3vw,40px); font-weight: 800; letter-spacing: -1.5px; color: var(--black); line-height: 1; margin-bottom: 6px; }
 .about-stat-num .acc { color: var(--orange); }
 .about-stat-label { font-size: 12.5px; color: var(--gray-400); }
-/* CTA dark strip below stats */
+
+/* CTA dark strip */
 .about-cta-strip { background: #111; padding: 56px 24px; text-align: center; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .about-cta-strip-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 24px; flex-wrap: wrap; }
 .about-cta-strip h3 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,28px); font-weight: 800; letter-spacing: -0.8px; color: var(--white); }
 .about-cta-strip p { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 4px; }
 
-/* ─── TEAM SECTION — image 5 style with horizontal scroll ─── */
+/* ── TEAM — auto-scroll like brand ticker ── */
 .team-section { background: var(--white); padding: 100px 0 80px; }
 .team-section-header { text-align: center; padding: 0 24px; margin-bottom: 56px; }
 .team-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; font-family: var(--font-head); display: flex; align-items: center; justify-content: center; gap: 8px; }
 .team-eyebrow::before, .team-eyebrow::after { content: ''; display: block; width: 20px; height: 1px; background: var(--orange); opacity: 0.5; }
 .team-headline { font-family: var(--font-head); font-size: clamp(28px,4vw,48px); font-weight: 800; letter-spacing: -1.5px; color: var(--black); line-height: 1.05; }
 .team-headline em { font-style: italic; color: var(--orange); }
-.team-headline-sub { font-size: 15px; color: var(--gray-400); margin-top: 12px; line-height: 1.6; }
 
-/* Horizontal scrolling strip */
-.team-scroll-wrap {
+/* Auto-scrolling track */
+.team-scroll-outer {
   overflow: hidden;
-  position: relative;
+  width: 100%;
   padding: 20px 0 40px;
+  position: relative;
 }
+/* Fade edges */
+.team-scroll-outer::before,
+.team-scroll-outer::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.team-scroll-outer::before { left: 0; background: linear-gradient(to right, var(--white), transparent); }
+.team-scroll-outer::after { right: 0; background: linear-gradient(to left, var(--white), transparent); }
+
 .team-scroll-track {
   display: flex;
   gap: 20px;
-  padding: 0 60px;
-  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: max-content;
+  animation: teamScroll 30s linear infinite;
 }
+.team-scroll-track:hover { animation-play-state: paused; }
+
+@keyframes teamScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 .team-card {
   flex-shrink: 0;
-  width: 280px;
+  width: 260px;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s;
   background: var(--gray-100);
+  border: 1px solid rgba(0,0,0,0.06);
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s;
 }
 .team-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
   z-index: 10;
 }
+
 /* B&W photo area */
 .team-card-photo {
-  width: 100%; height: 320px;
-  background: linear-gradient(160deg, #2a2a2a 0%, #1a1a1a 100%);
+  width: 100%; height: 200px;
   display: flex; align-items: center; justify-content: center;
   position: relative;
   overflow: hidden;
-  filter: grayscale(100%);
-  transition: filter 0.4s;
 }
-.team-card:hover .team-card-photo { filter: grayscale(0%); }
 .team-card-photo-initials {
   font-family: var(--font-head);
-  font-size: 72px;
+  font-size: 56px;
   font-weight: 800;
-  color: rgba(255,255,255,0.06);
-  letter-spacing: -4px;
+  color: rgba(255,255,255,0.08);
+  letter-spacing: -3px;
   user-select: none;
 }
+
+/* Name + role overlay at bottom of photo */
 .team-card-photo-overlay {
   position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
-  padding: 24px 20px 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  padding: 24px 16px 14px;
 }
-.team-card-name-small { font-family: var(--font-head); font-size: 17px; font-weight: 800; color: var(--white); }
-.team-card-role-small { font-size: 11px; color: rgba(255,255,255,0.6); font-weight: 600; margin-top: 2px; text-transform: uppercase; letter-spacing: 1px; }
-/* Expanded info panel — revealed on hover */
-.team-card-info {
-  padding: 20px;
+.team-card-name { font-family: var(--font-head); font-size: 15px; font-weight: 800; color: var(--white); margin-bottom: 2px; }
+.team-card-role { font-size: 10.5px; color: rgba(255,255,255,0.6); font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; }
+
+/* Socials bar — always visible, at bottom of card */
+.team-card-socials-bar {
   background: var(--white);
-  border-top: 1px solid rgba(0,0,0,0.06);
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.25,0.46,0.45,0.94), padding 0.4s;
-  padding-top: 0; padding-bottom: 0;
+  border-top: 1px solid var(--gray-200);
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
 }
-.team-card:hover .team-card-info {
-  max-height: 220px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-.team-card-bio { font-size: 13px; color: var(--gray-600); line-height: 1.65; margin-bottom: 14px; }
-.team-card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
-.team-card-tag { font-size: 10.5px; font-weight: 600; color: var(--orange); background: rgba(224,112,32,0.08); border: 1px solid rgba(224,112,32,0.15); padding: 3px 10px; border-radius: 999px; }
-.team-card-socials { display: flex; gap: 8px; }
 .team-social-btn { width: 30px; height: 30px; border-radius: 7px; border: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
 .team-social-btn:hover { border-color: var(--orange); background: rgba(224,112,32,0.06); }
 .team-social-btn svg { width: 13px; height: 13px; stroke: var(--gray-400); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .team-social-btn:hover svg { stroke: var(--orange); }
 
-/* Team scroll nav dots */
-.team-scroll-nav { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
-.team-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gray-200); cursor: pointer; transition: background 0.2s, transform 0.2s; }
-.team-dot.active { background: var(--orange); transform: scale(1.3); }
-
-/* Testimonial under team */
+/* Team testimonial */
 .team-testimonial { max-width: 700px; margin: 60px auto 0; padding: 0 24px; text-align: center; }
 .team-testimonial blockquote { font-size: clamp(16px,1.8vw,20px); color: var(--black); line-height: 1.65; font-weight: 500; margin-bottom: 24px; letter-spacing: -0.2px; }
 .team-testimonial-person { display: flex; align-items: center; justify-content: center; gap: 14px; }
@@ -771,12 +890,64 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
 .team-testimonial-name { font-family: var(--font-head); font-size: 14px; font-weight: 800; color: var(--black); }
 .team-testimonial-title { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
 
-/* ─── CAREERS SECTION ─── */
+/* ─── CAREERS — simplified, links to new page ─── */
 .careers-section { background: var(--cream); padding: 80px 24px; border-top: 1px solid var(--gray-200); }
 .careers-inner { max-width: 1100px; margin: 0 auto; }
 .careers-header { text-align: center; margin-bottom: 48px; }
 .careers-title { font-family: var(--font-head); font-size: clamp(28px,3.5vw,42px); font-weight: 800; letter-spacing: -1.5px; color: var(--black); line-height: 1.1; }
 .careers-sub { font-size: 15px; color: var(--gray-400); margin-top: 10px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+
+/* The simplified CTA card — Image 3 style */
+.careers-cta-card {
+  background: var(--white);
+  border-radius: 28px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0,0,0,0.055);
+  padding: 60px 48px;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.careers-cta-card h3 {
+  font-family: var(--font-head);
+  font-size: clamp(26px,3.5vw,40px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  color: var(--black);
+  margin-bottom: 14px;
+  line-height: 1.05;
+}
+.careers-cta-card p {
+  font-size: 15px;
+  color: var(--gray-400);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.careers-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--black);
+  color: var(--white);
+  padding: 16px 40px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.16);
+  text-decoration: none;
+}
+.careers-cta-btn:hover { background: var(--orange); transform: translateY(-2px); }
+
+/* ────────────────────────────────
+   CAREERS / JOBS FULL PAGE
+   ──────────────────────────────── */
 .careers-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 48px; }
 .careers-card {
   background: var(--white);
@@ -802,7 +973,6 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
 .careers-card-apply { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--orange); text-decoration: none; border-bottom: 1.5px solid rgba(224,112,32,0.25); padding-bottom: 2px; transition: border-color 0.2s; cursor: pointer; }
 .careers-card-apply:hover { border-color: var(--orange); }
 
-/* Join us CTA card */
 .careers-join-card { background: var(--black); border-radius: 24px; padding: 44px 52px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
 .careers-join-card h3 { font-family: var(--font-head); font-size: clamp(22px,2.5vw,30px); font-weight: 800; letter-spacing: -0.8px; color: var(--white); margin-bottom: 6px; }
 .careers-join-card p { font-size: 14px; color: rgba(255,255,255,0.4); }
@@ -810,7 +980,7 @@ footer { background: var(--black); color: var(--white); padding: 72px 24px 36px;
 .careers-join-btn:hover { background: var(--orange); color: var(--white); }
 
 /* ─── APPLY PAGE ─── */
-.apply-page-hero { padding: calc(var(--nav-height) + 40px) 24px 60px; border-bottom: 1px solid var(--gray-200); background: var(--white); background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px); background-size: 40px 40px; position: relative; }
+.apply-page-hero { padding: calc(var(--nav-height) + 40px) 24px 60px; border-bottom: 1px solid var(--gray-200); background: var(--white); position: relative; }
 .apply-page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--orange) 30%, var(--orange) 70%, transparent); }
 .apply-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-400); text-decoration: none; cursor: pointer; margin-bottom: 24px; transition: color 0.2s; }
 .apply-back:hover { color: var(--black); }
@@ -841,7 +1011,6 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 .form-submit { width: 100%; padding: 16px; background: var(--black); color: white; border: none; border-radius: 999px; font-family: var(--font-body); font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
 .form-submit:hover { background: var(--orange); }
 
-/* File upload */
 .file-upload-area {
   border: 2px dashed var(--gray-200);
   border-radius: 12px;
@@ -885,8 +1054,8 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
   .blog-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
-  .about-values-grid { grid-template-columns: 1fr 1fr; }
-  .about-values-col:last-child { display: none; }
+  .about-values-layout { grid-template-columns: 1fr auto; }
+  .about-val-right { display: none; }
   .about-stats-row { grid-template-columns: 1fr 1fr; }
   .faq-section-wrap { grid-template-columns: 1fr; gap: 32px; }
   .apply-grid { grid-template-columns: 1fr; }
@@ -899,13 +1068,12 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   .nav-drawer { display: flex; }
-  .hero { padding: calc(var(--nav-height) + 60px) 20px 80px; }
+  .hero { padding: calc(var(--nav-height) + 40px) 20px 60px; }
   .hero h1 { letter-spacing: -2px; }
   .why-inner, .audit-inner { padding: 0 20px; }
   .why-grid { grid-template-columns: 1fr; }
   .why-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 28px 0; }
   .why-item:last-child { border-bottom: none; }
-  .whatwedo-constrained { padding: 0 16px; }
   .bento-grid { grid-template-columns: 1fr; }
   .bc-pos, .bc-graph, .bc-stat, .bc-platform, .bc-social { grid-column: 1; grid-row: auto; }
   .bc-data { grid-column: 1; flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -922,16 +1090,15 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .process-connector { display: none; }
   .process-step { padding: 0; }
   .reviews-grid { grid-template-columns: 1fr; }
-  .audit-inner { padding: 0 20px; }
   .audit-features { grid-template-columns: 1fr; gap: 0; }
   .blog-grid { grid-template-columns: 1fr; }
   .blog-row { grid-template-columns: 1fr; }
-  .team-scroll-track { padding: 0 20px; }
-  .careers-grid { grid-template-columns: 1fr; }
-  .about-values-grid { grid-template-columns: 1fr; }
-  .about-values-col:last-child { display: flex; }
-  .about-val-item-right { text-align: left; }
-  .about-val-item-right .about-val-item-icon { justify-content: flex-start; }
+  .about-values-layout { grid-template-columns: 1fr; }
+  .about-val-left { display: none; }
+  .about-val-right { display: flex; }
+  .about-val-right .about-val-item { padding-left: 0; text-align: left; }
+  .about-val-right .about-val-item::before { display: none; }
+  .about-central-card { width: 100%; max-width: 320px; margin: 0 auto 40px; }
   .about-stats-row { grid-template-columns: 1fr 1fr; }
   .faq-section-wrap { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -943,10 +1110,12 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .careers-join-card { padding: 32px 24px; flex-direction: column; }
   .about-cta-strip-inner { flex-direction: column; text-align: center; }
   .page-body { padding: 48px 16px 80px; }
+  .careers-grid { grid-template-columns: 1fr; }
+  .careers-cta-card { padding: 40px 24px; }
 }
 
 @media (max-width: 480px) {
-  .hero h1 { font-size: 38px; letter-spacing: -1.5px; }
+  .hero h1 { font-size: 34px; letter-spacing: -1.5px; }
   .bc-data-left { flex-wrap: wrap; gap: 12px; }
   .bc-data-divider { display: none; }
   .watching-stats { grid-template-columns: repeat(2,1fr); }
@@ -1009,7 +1178,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
     </div>
   </section>
 
-  <!-- TICKER — seamless -->
+  <!-- TICKER -->
   <div class="logos-section">
     <p class="logos-label">Platforms we power for you</p>
     <div class="logos-overflow">
@@ -1053,7 +1222,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
         <div class="why-item">
           <div class="why-num">0 3</div>
           <h3 class="why-title">Built only for hospitality.</h3>
-          <p class="why-desc">We work exclusively with restaurants and hotels in Goa. This isn't a generic agency — it's a specialist partner who understands your world.</p>
+          <p class="why-desc">We work exclusively with restaurants and hotels. This isn't a generic agency — it's a specialist partner who understands your world.</p>
         </div>
       </div>
     </div>
@@ -1156,7 +1325,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
         <div class="wstat"><div class="wstat-num"><span class="wstat-counter" data-target="6">0</span><span class="acc">+</span></div><div class="wstat-label">In-house specialists</div></div>
         <div class="wstat"><div class="wstat-num"><span class="acc">Rs. </span><span class="wstat-counter" data-target="0">0</span></div><div class="wstat-label">To start — free audit</div></div>
         <div class="wstat"><div class="wstat-num"><span class="wstat-counter" data-target="1">0</span></div><div class="wstat-label">Point of contact</div></div>
-        <div class="wstat"><div class="wstat-num"><span class="wstat-counter" data-target="100">0</span><span class="acc">%</span></div><div class="wstat-label">Goa focused</div></div>
+        <div class="wstat"><div class="wstat-num"><span class="wstat-counter" data-target="100">0</span><span class="acc">%</span></div><div class="wstat-label">Data-driven decisions</div></div>
       </div>
     </div>
   </section>
@@ -1165,11 +1334,11 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   <section class="clients-section" id="how-it-works">
     <div class="clients-inner fade-up">
       <div class="clients-left">
-        <div class="clients-eyebrow">Global Clients</div>
-        <h2>Business owners who trust us<br>from across the world.</h2>
+        <div class="clients-eyebrow">Global Reach</div>
+        <h2>Trusted by owners<br>across the world.</h2>
       </div>
       <div class="clients-right">
-        <div class="clients-right-label">Where we work</div>
+        <div class="clients-right-label">Where our clients operate</div>
         <div class="clients-pills">
           <span class="city-pill"><span class="city-dot"></span>London & Newcastle, UK</span>
           <span class="city-pill"><span class="city-dot"></span>Dubai, UAE</span>
@@ -1278,7 +1447,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
     <div class="subscribe-inner fade-up">
       <div class="section-eyebrow" style="text-align:center;">Stay Sharp</div>
       <h3>Monthly insights for<br>business owners.</h3>
-      <p>One email a month. Data, strategy, and what's actually working in Goa's hospitality market.</p>
+      <p>One email a month. Data, strategy, and what's actually working in the hospitality market.</p>
       <div class="subscribe-form">
         <input class="subscribe-input" type="email" placeholder="your@business.com">
         <button class="subscribe-btn" onclick="handleSubscribe(this)">Subscribe →</button>
@@ -1348,17 +1517,21 @@ textarea.form-input { resize: vertical; min-height: 120px; }
     </div>
     <div class="services-hero-curve"></div>
   </div>
+
   <div class="services-page-body">
     <div class="container">
-      <div class="services-list-full">
-        <div class="service-card-full fade-up"><div class="service-card-top"><div><div class="service-card-num">0 1</div><div class="service-card-title">POS Software Management & Analytics</div></div><a class="service-card-link" onclick="showPage('contact')">Get started →</a></div><p class="service-card-desc">We read your point-of-sale data every month. Best sellers, dead weight, peak windows, cover averages — we find them and tell you exactly what to do. You get a clear, jargon-free report every single month.</p><div class="service-card-features"><span class="s-feat">Monthly POS deep-dive</span><span class="s-feat">Best-seller identification</span><span class="s-feat">Dead weight removal</span><span class="s-feat">Peak hour mapping</span><span class="s-feat">Cover average tracking</span><span class="s-feat">Plain-language reports</span></div></div>
-        <div class="service-card-full fade-up"><div class="service-card-top"><div><div class="service-card-num">0 2</div><div class="service-card-title">Social Media Management</div></div><a class="service-card-link" onclick="showPage('contact')">Get started →</a></div><p class="service-card-desc">Daily shoots, captions, and scheduling. Instagram and Facebook handled every single day — without you lifting a finger. We handle everything from concept to posting, including stories, reels, and engagement.</p><div class="service-card-features"><span class="s-feat">Daily content creation</span><span class="s-feat">Professional photography</span><span class="s-feat">Caption writing</span><span class="s-feat">Instagram & Facebook</span><span class="s-feat">Reels & Stories</span><span class="s-feat">Community management</span></div></div>
-        <div class="service-card-full fade-up"><div class="service-card-top"><div><div class="service-card-num">0 3</div><div class="service-card-title">Delivery Platform Management</div></div><a class="service-card-link" onclick="showPage('contact')">Get started →</a></div><p class="service-card-desc">Swiggy and Zomato fully optimised — menus, photography, pricing strategy, and ranking tactics to drive orders at better margins. We actively manage your listings, run platform promotions, and track performance weekly.</p><div class="service-card-features"><span class="s-feat">Zomato optimisation</span><span class="s-feat">Swiggy management</span><span class="s-feat">Menu photography</span><span class="s-feat">Pricing strategy</span><span class="s-feat">Rank improvement</span><span class="s-feat">Promotion management</span></div></div>
-        <div class="service-card-full fade-up"><div class="service-card-top"><div><div class="service-card-num">0 4</div><div class="service-card-title">Website & SEO</div></div><a class="service-card-link" onclick="showPage('contact')">Get started →</a></div><p class="service-card-desc">A fast, beautiful website and Google Business profile that ranks when customers search in Goa. We build it, host it, and keep it updated — you own it forever.</p><div class="service-card-features"><span class="s-feat">Custom website build</span><span class="s-feat">Google Business Profile</span><span class="s-feat">Local SEO</span><span class="s-feat">Monthly updates</span><span class="s-feat">Performance tracking</span><span class="s-feat">Review management</span></div></div>
-        <div class="service-card-full fade-up"><div class="service-card-top"><div><div class="service-card-num">0 5</div><div class="service-card-title">Monthly Reports & Strategy Calls</div></div><a class="service-card-link" onclick="showPage('contact')">Get started →</a></div><p class="service-card-desc">One 45-minute call per month. We walk you through everything in plain language — what happened, what worked, what we're doing next. That is the only time commitment we ask of you.</p><div class="service-card-features"><span class="s-feat">45-min monthly call</span><span class="s-feat">Plain-language summary</span><span class="s-feat">Next month plan</span><span class="s-feat">Competitor snapshot</span><span class="s-feat">One dedicated contact</span></div></div>
+      <div class="services-all-container fade-up">
+        <div class="services-list-full">
+          <div class="service-card-full"><div class="service-card-top"><div><div class="service-card-num">0 1</div><div class="service-card-title">POS Software Management & Analytics</div></div><a class="service-card-link" onclick="showPage('contact')">Get started →</a></div><p class="service-card-desc">We read your point-of-sale data every month. Best sellers, dead weight, peak windows, cover averages — we find them and tell you exactly what to do. You get a clear, jargon-free report every single month.</p><div class="service-card-features"><span class="s-feat">Monthly POS deep-dive</span><span class="s-feat">Best-seller identification</span><span class="s-feat">Dead weight removal</span><span class="s-feat">Peak hour mapping</span><span class="s-feat">Cover average tracking</span><span class="s-feat">Plain-language reports</span></div></div>
+          <div class="service-card-full"><div class="service-card-top"><div><div class="service-card-num">0 2</div><div class="service-card-title">Social Media Management</div></div><a class="service-card-link" onclick="showPage('contact')">Get started →</a></div><p class="service-card-desc">Daily shoots, captions, and scheduling. Instagram and Facebook handled every single day — without you lifting a finger. We handle everything from concept to posting, including stories, reels, and engagement.</p><div class="service-card-features"><span class="s-feat">Daily content creation</span><span class="s-feat">Professional photography</span><span class="s-feat">Caption writing</span><span class="s-feat">Instagram & Facebook</span><span class="s-feat">Reels & Stories</span><span class="s-feat">Community management</span></div></div>
+          <div class="service-card-full"><div class="service-card-top"><div><div class="service-card-num">0 3</div><div class="service-card-title">Delivery Platform Management</div></div><a class="service-card-link" onclick="showPage('contact')">Get started →</a></div><p class="service-card-desc">Swiggy and Zomato fully optimised — menus, photography, pricing strategy, and ranking tactics to drive orders at better margins. We actively manage your listings, run platform promotions, and track performance weekly.</p><div class="service-card-features"><span class="s-feat">Zomato optimisation</span><span class="s-feat">Swiggy management</span><span class="s-feat">Menu photography</span><span class="s-feat">Pricing strategy</span><span class="s-feat">Rank improvement</span><span class="s-feat">Promotion management</span></div></div>
+          <div class="service-card-full"><div class="service-card-top"><div><div class="service-card-num">0 4</div><div class="service-card-title">Website & SEO</div></div><a class="service-card-link" onclick="showPage('contact')">Get started →</a></div><p class="service-card-desc">A fast, beautiful website and Google Business profile that ranks when customers search. We build it, host it, and keep it updated — you own it forever.</p><div class="service-card-features"><span class="s-feat">Custom website build</span><span class="s-feat">Google Business Profile</span><span class="s-feat">Local SEO</span><span class="s-feat">Monthly updates</span><span class="s-feat">Performance tracking</span><span class="s-feat">Review management</span></div></div>
+          <div class="service-card-full"><div class="service-card-top"><div><div class="service-card-num">0 5</div><div class="service-card-title">Monthly Reports & Strategy Calls</div></div><a class="service-card-link" onclick="showPage('contact')">Get started →</a></div><p class="service-card-desc">One 45-minute call per month. We walk you through everything in plain language — what happened, what worked, what we're doing next. That is the only time commitment we ask of you.</p><div class="service-card-features"><span class="s-feat">45-min monthly call</span><span class="s-feat">Plain-language summary</span><span class="s-feat">Next month plan</span><span class="s-feat">Competitor snapshot</span><span class="s-feat">One dedicated contact</span></div></div>
+        </div>
       </div>
     </div>
   </div>
+
   <footer><div class="footer-inner"><div class="footer-top"><div><a class="footer-brand" onclick="showPage('main')"><div class="footer-logomark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-family="'Syne',sans-serif" font-weight="800" font-size="10" fill="white">TWT</text></svg></div><span class="footer-wordmark">The <span>White Tiger</span></span></a><p class="footer-desc">Your business intelligence partner.</p></div><div class="footer-col"><h5>Pages</h5><ul><li><a onclick="showPage('main')">Home</a></li><li><a onclick="showPage('pricing')">Pricing</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 The White Tiger. All rights reserved.</p></div></div></footer>
 </div>
 
@@ -1378,19 +1551,49 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 
 <!-- ════ BLOG PAGE ════ -->
 <div id="page-blog" class="page">
-  <div class="page-hero"><div class="container"><div class="page-hero-inner"><div class="section-eyebrow">Insights & Ideas</div><h1>The White Tiger <em>Blog.</em></h1><p>Data-driven insights, practical guides, and honest opinions for business owners in Goa and beyond.</p></div></div></div>
+  <div class="page-hero"><div class="container"><div class="page-hero-inner"><div class="section-eyebrow">Insights & Ideas</div><h1>The White Tiger <em>Blog.</em></h1><p>Data-driven insights, practical guides, and honest opinions for business owners everywhere.</p></div></div></div>
   <div class="page-body with-texture"><div class="container">
     <div class="blog-grid fade-up">
-      <div class="blog-card"><div class="blog-img featured"><div class="blog-img-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div></div><div class="blog-content"><div class="blog-meta"><span class="blog-tag">POS Analytics</span><span>March 2026</span><span>8 min read</span></div><h2 class="blog-title">How to read your POS data and double your best-selling items in 90 days</h2><p class="blog-excerpt">Most business owners look at total revenue and stop there. Here's what the data actually tells you — and how to act on it.</p></div></div>
-      <div class="blog-card"><div class="blog-img"><div class="blog-img-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div></div><div class="blog-content"><div class="blog-meta"><span class="blog-tag">Delivery Platforms</span><span>Feb 2026</span><span>6 min read</span></div><h2 class="blog-title">The Zomato ranking algorithm in 2026: what actually works</h2><p class="blog-excerpt">We've managed 50+ listings. Here's what we've learned about ranking higher and getting more orders.</p></div></div>
+      <div class="blog-card">
+        <div class="blog-img featured">
+          <div class="blog-img-bg-text">POS</div>
+          <div class="blog-img-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        </div>
+        <div class="blog-content"><div class="blog-meta"><span class="blog-tag">POS Analytics</span><span>March 2026</span><span>8 min read</span></div><h2 class="blog-title">How to read your POS data and double your best-selling items in 90 days</h2><p class="blog-excerpt">Most business owners look at total revenue and stop there. Here's what the data actually tells you — and how to act on it.</p></div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img featured-alt">
+          <div class="blog-img-bg-text">APP</div>
+          <div class="blog-img-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        </div>
+        <div class="blog-content"><div class="blog-meta"><span class="blog-tag">Delivery Platforms</span><span>Feb 2026</span><span>6 min read</span></div><h2 class="blog-title">The Zomato ranking algorithm in 2026: what actually works</h2><p class="blog-excerpt">We've managed 50+ listings. Here's what we've learned about ranking higher and getting more orders.</p></div>
+      </div>
     </div>
     <div class="blog-row fade-up">
-      <div class="blog-card"><div class="blog-img"><div class="blog-img-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg></div></div><div class="blog-content"><div class="blog-meta"><span class="blog-tag">Strategy</span><span>Jan 2026</span></div><h2 class="blog-title">Why Goa businesses need a different digital strategy than Mumbai</h2><p class="blog-excerpt">Seasonal footfall, tourist demographics, and local search behaviour are all different.</p></div></div>
-      <div class="blog-card"><div class="blog-img"><div class="blog-img-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div><div class="blog-content"><div class="blog-meta"><span class="blog-tag">Meta Ads</span><span>Jan 2026</span></div><h2 class="blog-title">Meta Ads for businesses: what Rs. 15,000 a month actually gets you</h2><p class="blog-excerpt">Realistic expectations, real results, and how to structure your campaigns.</p></div></div>
-      <div class="blog-card"><div class="blog-img"><div class="blog-img-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div><div class="blog-content"><div class="blog-meta"><span class="blog-tag">Reviews</span><span>Dec 2025</span></div><h2 class="blog-title">How to get more Google reviews without being annoying about it</h2><p class="blog-excerpt">A simple, repeatable system that gets our clients above 4.7 on Google Maps.</p></div></div>
+      <div class="blog-card">
+        <div class="blog-img alt2" style="height:160px;">
+          <div class="blog-img-bg-text">GOA</div>
+          <div class="blog-img-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg></div>
+        </div>
+        <div class="blog-content"><div class="blog-meta"><span class="blog-tag">Strategy</span><span>Jan 2026</span></div><h2 class="blog-title">Why hospitality businesses need a different digital strategy</h2><p class="blog-excerpt">Seasonal footfall, tourist demographics, and local search behaviour are all different.</p></div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img alt3" style="height:160px;">
+          <div class="blog-img-bg-text">ADS</div>
+          <div class="blog-img-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        </div>
+        <div class="blog-content"><div class="blog-meta"><span class="blog-tag">Meta Ads</span><span>Jan 2026</span></div><h2 class="blog-title">Meta Ads for businesses: what Rs. 15,000 a month actually gets you</h2><p class="blog-excerpt">Realistic expectations, real results, and how to structure your campaigns.</p></div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img alt4" style="height:160px;">
+          <div class="blog-img-bg-text">★★</div>
+          <div class="blog-img-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        </div>
+        <div class="blog-content"><div class="blog-meta"><span class="blog-tag">Reviews</span><span>Dec 2025</span></div><h2 class="blog-title">How to get more Google reviews without being annoying about it</h2><p class="blog-excerpt">A simple, repeatable system that gets our clients above 4.7 on Google Maps.</p></div>
+      </div>
     </div>
   </div></div>
-  <section class="subscribe-band"><div class="subscribe-inner fade-up"><div class="section-eyebrow" style="text-align:center;">Never Miss an Insight</div><h3>Get the monthly business<br>intelligence brief.</h3><p>What's working in Goa's hospitality market right now — straight to your inbox, once a month.</p><div class="subscribe-form"><input class="subscribe-input" type="email" placeholder="your@business.com"><button class="subscribe-btn" onclick="handleSubscribe(this)">Subscribe →</button></div><p class="subscribe-note">No spam. Unsubscribe anytime.</p></div></section>
+  <section class="subscribe-band"><div class="subscribe-inner fade-up"><div class="section-eyebrow" style="text-align:center;">Never Miss an Insight</div><h3>Get the monthly business<br>intelligence brief.</h3><p>What's working in hospitality right now — straight to your inbox, once a month.</p><div class="subscribe-form"><input class="subscribe-input" type="email" placeholder="your@business.com"><button class="subscribe-btn" onclick="handleSubscribe(this)">Subscribe →</button></div><p class="subscribe-note">No spam. Unsubscribe anytime.</p></div></section>
   <footer><div class="footer-inner"><div class="footer-top"><div><a class="footer-brand" onclick="showPage('main')"><div class="footer-logomark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-family="'Syne',sans-serif" font-weight="800" font-size="10" fill="white">TWT</text></svg></div><span class="footer-wordmark">The <span>White Tiger</span></span></a><p class="footer-desc">Your business intelligence partner.</p></div><div class="footer-col"><h5>Pages</h5><ul><li><a onclick="showPage('main')">Home</a></li><li><a onclick="showPage('pricing')">Pricing</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 The White Tiger. All rights reserved.</p></div></div></footer>
 </div>
 
@@ -1399,22 +1602,20 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   <div class="page-hero"><div class="container"><div class="page-hero-inner"><div class="section-eyebrow">Got Questions</div><h1>We've got<br><em>answers.</em></h1><p>Everything you need to know before working with us. Still not sure? Just drop us a message.</p></div></div></div>
   <div class="page-body with-texture"><div class="container">
     <div class="faq-section-wrap fade-up">
-      <!-- Left col -->
       <div class="faq-left-col">
         <h2>FAQs</h2>
         <p style="font-size:15px;color:var(--gray-400);line-height:1.7;margin-top:8px;">Your questions answered</p>
         <p class="faq-left-contact" style="margin-top:20px;">Can't find what you're looking for?<br><a onclick="showPage('contact')">Contact our team</a></p>
       </div>
-      <!-- Right col — accordion -->
       <div class="faq-list">
         <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>What exactly is a free audit and what does it involve?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>A free audit is a 60-minute deep dive into your digital presence — we look at your delivery platform listings, Google Business profile, social media pages, and if you share it, your POS data. You walk away with a written findings report and a prioritised action list. No obligation to work with us after.</p></div></div>
         <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>Do I need to sign a long-term contract?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>No. All our plans are month-to-month. We ask for 30 days notice to cancel. We believe if we're doing our job well, you won't want to leave.</p></div></div>
         <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>How much time will this take from me every month?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>One 45-minute call per month. That's it. We handle everything else — you just need to be on that call to share updates, new menu items, or upcoming events.</p></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>Do you work with businesses outside Goa?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>We have clients in London, Dubai, Mumbai, and Dublin who own businesses remotely. If you're outside Goa, we can still help but our strongest expertise is in the Goa market. Reach out and we'll be honest about whether we're the right fit.</p></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>What POS systems do you work with?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>We've worked with Petpooja, Posist, Lightspeed, Square, and several custom systems. As long as you can export your data, we can work with it. If you don't have a POS system yet, we can recommend one too.</p></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>How quickly do you get started after signing up?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>Within 5 working days. We run an onboarding session, get access to your platforms, and begin your first full month of management. You'll receive your first monthly report within 30 days of starting.</p></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>Is the ad spend included in the plan price?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>No — ad spend is paid directly by you to the platform. Our fee covers the management, strategy, and execution. This keeps things transparent — you always know exactly where your money is going.</p></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>What kind of results can I realistically expect?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>Our clients typically see measurable improvement in delivery platform orders within the first 60 days, and meaningful revenue growth within 90. One client saw +89% revenue growth year-on-year. Results vary based on your starting point.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>Do you work with businesses outside Goa?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>Yes — we work with clients globally. Owners in London, Dubai, Mumbai, and Dublin trust us to manage their Goa-based businesses remotely. We handle everything end-to-end, wherever you are.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>What POS systems do you work with?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>We've worked with Petpooja, Posist, Lightspeed, Square, and several custom systems. As long as you can export your data, we can work with it.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>How quickly do you get started after signing up?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>Within 5 working days. We run an onboarding session, get access to your platforms, and begin your first full month of management.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>Is the ad spend included in the plan price?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>No — ad spend is paid directly by you to the platform. Our fee covers the management, strategy, and execution. This keeps things transparent.</p></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h3>What kind of results can I realistically expect?</h3><div class="faq-toggle">+</div></div><div class="faq-a"><p>Our clients typically see measurable improvement in delivery platform orders within the first 60 days, and meaningful revenue growth within 90. One client saw +89% revenue growth year-on-year.</p></div></div>
       </div>
     </div>
     <div style="text-align:center;margin-top:52px;" class="fade-up"><p style="font-size:16px;color:var(--gray-600);margin-bottom:20px;">Still have a question? We'll answer it.</p><button class="btn-primary" onclick="showPage('contact')">Send Us a Message →</button></div>
@@ -1424,94 +1625,99 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 
 <!-- ════ ABOUT PAGE ════ -->
 <div id="page-about" class="page">
-  <div class="page-hero"><div class="container"><div class="page-hero-inner"><div class="section-eyebrow">Our Story</div><h1>Built in Goa.<br><em>Built for Goa.</em></h1><p>We started White Tiger because we watched great businesses fail not from bad product — but from bad data, bad platforms, and no time to fix either.</p></div></div></div>
+  <div class="page-hero"><div class="container"><div class="page-hero-inner"><div class="section-eyebrow">Our Story</div><h1>Intelligence without<br><em>borders.</em></h1><p>We started White Tiger because we watched great businesses fail — not from bad product, but from bad data, bad platforms, and no time to fix either.</p></div></div></div>
 
   <div class="about-page-body">
     <div class="container">
-      <!-- Mission -->
       <div class="about-mission-wrap fade-up">
         <div class="about-eyebrow-line">Discover Our Story</div>
         <h2>We believe businesses deserve a partner who <em>actually understands them.</em></h2>
-        <p>Most agencies treat hospitality like any other business. They don't understand the seasonal nature of Goa tourism, the importance of delivery platform ranking during monsoon, or what a POS report can actually tell you about your menu. We do.</p>
+        <p>Most agencies treat hospitality like any other business. They don't understand the seasonal nature of tourism, the importance of delivery platform ranking, or what a POS report can actually tell you about your menu. We do.</p>
       </div>
+    </div>
 
-      <!-- Values around central image -->
-      <div class="about-services-wrap fade-up">
-        <div class="about-values-grid">
-          <!-- Left column of values -->
-          <div class="about-values-col">
-            <div class="about-val-item">
-              <div class="about-val-item-icon">
+    <!-- Values + central image layout -->
+    <div class="about-values-outer fade-up">
+      <div class="about-values-layout">
+        <!-- Left values -->
+        <div class="about-val-left">
+          <div class="about-val-item">
+            <div class="about-val-item-inner">
+              <div class="about-val-item-icon-row">
                 <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                <div class="about-val-item-title">Honest before everything</div>
+                <div class="about-val-title">Honest before everything</div>
               </div>
-              <p class="about-val-item-desc">We'll tell you if a strategy won't work, if a service isn't right for your stage, or if your data suggests the opposite of what you expected.</p>
+              <p class="about-val-desc">We'll tell you if a strategy won't work, if a service isn't right for your stage, or if your data suggests the opposite of what you expected.</p>
             </div>
-            <div class="about-val-item">
-              <div class="about-val-item-icon">
+          </div>
+          <div class="about-val-item">
+            <div class="about-val-item-inner">
+              <div class="about-val-item-icon-row">
                 <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                <div class="about-val-item-title">Data, not opinion</div>
+                <div class="about-val-title">Data, not opinion</div>
               </div>
-              <p class="about-val-item-desc">Every recommendation we make comes from your actual numbers. We don't rely on industry benchmarks or gut feeling.</p>
+              <p class="about-val-desc">Every recommendation we make comes from your actual numbers. We don't rely on industry benchmarks or gut feeling.</p>
             </div>
-            <div class="about-val-item">
-              <div class="about-val-item-icon">
+          </div>
+          <div class="about-val-item">
+            <div class="about-val-item-inner">
+              <div class="about-val-item-icon-row">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                <div class="about-val-item-title">Built only for hospitality</div>
+                <div class="about-val-title">Built for hospitality</div>
               </div>
-              <p class="about-val-item-desc">We work exclusively with restaurants and hotels in Goa. Deep knowledge, deep results — not a generic approach.</p>
+              <p class="about-val-desc">We work exclusively with restaurants and hotels. Deep knowledge, deep results — not a generic approach.</p>
             </div>
           </div>
+        </div>
 
-          <!-- Central image placeholder -->
-          <div>
-            <div class="about-central-img">
-              <div class="about-central-img-inner">
-                <svg class="about-img-bg-circles" viewBox="0 0 220 220">
-                  <circle cx="110" cy="110" r="90" stroke-width="1"/>
-                  <circle cx="110" cy="110" r="60" stroke-width="1"/>
-                  <circle cx="110" cy="110" r="30" stroke-width="1"/>
-                </svg>
-                <div style="position:relative;z-index:2;text-align:center;margin-bottom:24px;">
-                  <div style="font-family:var(--font-head);font-size:64px;font-weight:800;color:rgba(255,255,255,0.07);letter-spacing:-4px;line-height:1;margin-bottom:-10px;">TWT</div>
-                  <div style="font-family:var(--font-head);font-size:13px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:4px;text-transform:uppercase;">Since 2023</div>
-                </div>
-                <a class="about-img-overlay-text" onclick="showPage('contact')">Our Portfolio →</a>
-              </div>
-            </div>
+        <!-- Central dark card -->
+        <div class="about-central-card">
+          <svg class="about-central-bg-circles" viewBox="0 0 240 240">
+            <circle cx="120" cy="120" r="100" stroke-width="1"/>
+            <circle cx="120" cy="120" r="66" stroke-width="1"/>
+            <circle cx="120" cy="120" r="34" stroke-width="1"/>
+          </svg>
+          <div class="about-central-logo">
+            <div class="about-central-logo-mark">TWT</div>
+            <div class="about-central-logo-sub">Since 2023</div>
           </div>
+          <a class="about-portfolio-btn" onclick="showPage('contact')">Our Portfolio →</a>
+        </div>
 
-          <!-- Right column of values -->
-          <div class="about-values-col">
-            <div class="about-val-item about-val-item-right">
-              <div class="about-val-item-icon">
+        <!-- Right values -->
+        <div class="about-val-right">
+          <div class="about-val-item">
+            <div class="about-val-item-inner">
+              <div class="about-val-item-icon-row">
                 <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                <div class="about-val-item-title">One team, always</div>
+                <div class="about-val-title">One team, always</div>
               </div>
-              <p class="about-val-item-desc">You'll never get handed off to a junior. The same specialist team that onboards you manages you month after month.</p>
+              <p class="about-val-desc">You'll never get handed off to a junior. The same specialist team that onboards you manages you month after month.</p>
             </div>
-            <div class="about-val-item about-val-item-right">
-              <div class="about-val-item-icon">
+          </div>
+          <div class="about-val-item">
+            <div class="about-val-item-inner">
+              <div class="about-val-item-icon-row">
                 <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                <div class="about-val-item-title">Measurable impact</div>
+                <div class="about-val-title">Measurable impact</div>
               </div>
-              <p class="about-val-item-desc">We track everything — orders, revenue, ranking, engagement. Every month you see exactly what changed and why.</p>
+              <p class="about-val-desc">We track everything — orders, revenue, ranking, engagement. Every month you see exactly what changed and why.</p>
             </div>
-            <div class="about-val-item about-val-item-right">
-              <div class="about-val-item-icon">
-                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <div class="about-val-item-title">Goa is our focus</div>
+          </div>
+          <div class="about-val-item">
+            <div class="about-val-item-inner">
+              <div class="about-val-item-icon-row">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <div class="about-val-title">Global reach</div>
               </div>
-              <p class="about-val-item-desc">We're not trying to be everywhere. Our deep knowledge of Goa's market — the seasons, the tourists, the platforms — makes our work exceptional.</p>
+              <p class="about-val-desc">Clients across London, Dubai, Mumbai, and Dublin trust us. Distance is never a barrier — results always are the focus.</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Stats row -->
-    <div class="container" style="padding-bottom:80px;">
-      <div class="about-stats-row fade-up">
+      <!-- Stats -->
+      <div class="about-stats-row fade-up" style="margin-top:60px;">
         <div class="about-stat">
           <div class="about-stat-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
           <div class="about-stat-num">150<span class="acc">+</span></div>
@@ -1547,113 +1753,158 @@ textarea.form-input { resize: vertical; min-height: 120px; }
     </div>
   </div>
 
-  <!-- TEAM SECTION -->
+  <!-- TEAM -->
   <section class="team-section">
     <div class="team-section-header fade-up">
       <div class="team-eyebrow">The Team</div>
       <h2 class="team-headline">The people behind<br>every <em>number.</em></h2>
-      <p class="team-headline-sub">Hover over a card to learn more about each team member.</p>
     </div>
 
-    <div class="team-scroll-wrap">
+    <div class="team-scroll-outer">
       <div class="team-scroll-track" id="teamTrack">
-        <!-- Card 1 -->
+        <!-- Cards duplicated for seamless loop -->
+        <!-- Original set -->
         <div class="team-card">
           <div class="team-card-photo" style="background:linear-gradient(160deg,#1e1e1e,#2d2d2d);">
             <div class="team-card-photo-initials">AM</div>
             <div class="team-card-photo-overlay">
-              <div class="team-card-name-small">Arjun Mehta</div>
-              <div class="team-card-role-small">Founder & Strategy Lead</div>
+              <div class="team-card-name">Arjun Mehta</div>
+              <div class="team-card-role">Founder & Strategy Lead</div>
             </div>
           </div>
-          <div class="team-card-info">
-            <p class="team-card-bio">Former F&B consultant who spent 6 years working with hotel groups across Goa. Built TWT to give smaller businesses access to the same strategic edge as the big chains.</p>
-            <div class="team-card-tags"><span class="team-card-tag">Strategy</span><span class="team-card-tag">Business Dev</span><span class="team-card-tag">F&B Ops</span></div>
-            <div class="team-card-socials">
-              <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-              <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.4 5.2 3.9 8.4 4-.1-1.5.3-3.1 1.2-4.3C14.1 3 18 3.8 20 6c1.1-.3 2.1-.7 3-1.4z"/></svg></div>
-            </div>
+          <div class="team-card-socials-bar">
+            <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.4 5.2 3.9 8.4 4-.1-1.5.3-3.1 1.2-4.3C14.1 3 18 3.8 20 6c1.1-.3 2.1-.7 3-1.4z"/></svg></div>
           </div>
         </div>
-        <!-- Card 2 -->
         <div class="team-card">
           <div class="team-card-photo" style="background:linear-gradient(160deg,#1a1e1a,#252e25);">
             <div class="team-card-photo-initials">PN</div>
             <div class="team-card-photo-overlay">
-              <div class="team-card-name-small">Priya Naik</div>
-              <div class="team-card-role-small">Data & POS Analytics</div>
+              <div class="team-card-name">Priya Naik</div>
+              <div class="team-card-role">Data & POS Analytics</div>
             </div>
           </div>
-          <div class="team-card-info">
-            <p class="team-card-bio">Ex-data analyst who turned a love for food into a career making businesses smarter. If there's a pattern hiding in your sales data, Priya will find it in the first five minutes.</p>
-            <div class="team-card-tags"><span class="team-card-tag">POS Analytics</span><span class="team-card-tag">Revenue Opt</span><span class="team-card-tag">Reporting</span></div>
-            <div class="team-card-socials">
-              <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-            </div>
+          <div class="team-card-socials-bar">
+            <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
           </div>
         </div>
-        <!-- Card 3 -->
         <div class="team-card">
           <div class="team-card-photo" style="background:linear-gradient(160deg,#1a1a1e,#252530);">
             <div class="team-card-photo-initials">CD</div>
             <div class="team-card-photo-overlay">
-              <div class="team-card-name-small">Carlos D'Souza</div>
-              <div class="team-card-role-small">Social Media & Content</div>
+              <div class="team-card-name">Carlos D'Souza</div>
+              <div class="team-card-role">Social Media & Content</div>
             </div>
           </div>
-          <div class="team-card-info">
-            <p class="team-card-bio">Goa-born photographer and content creator who's shot over 300 menus. He runs your Instagram like a magazine editor — every post intentional, every caption earning its place.</p>
-            <div class="team-card-tags"><span class="team-card-tag">Photography</span><span class="team-card-tag">Content Strategy</span><span class="team-card-tag">Meta Ads</span></div>
-            <div class="team-card-socials">
-              <div class="team-social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
-            </div>
+          <div class="team-card-socials-bar">
+            <div class="team-social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
           </div>
         </div>
-        <!-- Card 4 -->
         <div class="team-card">
           <div class="team-card-photo" style="background:linear-gradient(160deg,#1e1a1a,#2e2525);">
             <div class="team-card-photo-initials">MS</div>
             <div class="team-card-photo-overlay">
-              <div class="team-card-name-small">Meera Sharma</div>
-              <div class="team-card-role-small">SEO & Web Manager</div>
+              <div class="team-card-name">Meera Sharma</div>
+              <div class="team-card-role">SEO & Web Manager</div>
             </div>
           </div>
-          <div class="team-card-info">
-            <p class="team-card-bio">Built websites for 60+ businesses across Goa. She speaks fluent Google — and knows exactly how to get your business found when it matters most. Tourists searching at 7pm? She planned for that.</p>
-            <div class="team-card-tags"><span class="team-card-tag">SEO</span><span class="team-card-tag">Web Design</span><span class="team-card-tag">Google Ads</span></div>
-            <div class="team-card-socials">
-              <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-            </div>
+          <div class="team-card-socials-bar">
+            <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
           </div>
         </div>
-        <!-- Card 5 -->
         <div class="team-card">
           <div class="team-card-photo" style="background:linear-gradient(160deg,#1a1e1e,#25302e);">
             <div class="team-card-photo-initials">RK</div>
             <div class="team-card-photo-overlay">
-              <div class="team-card-name-small">Rohit Kamat</div>
-              <div class="team-card-role-small">Delivery Platform Lead</div>
+              <div class="team-card-name">Rohit Kamat</div>
+              <div class="team-card-role">Delivery Platform Lead</div>
             </div>
           </div>
-          <div class="team-card-info">
-            <p class="team-card-bio">Managed 80+ Zomato and Swiggy listings across Goa. Rohit knows the algorithm inside out — and exactly how to get your listing ranked above the competition in your area.</p>
-            <div class="team-card-tags"><span class="team-card-tag">Zomato</span><span class="team-card-tag">Swiggy</span><span class="team-card-tag">Promotions</span></div>
-            <div class="team-card-socials">
-              <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div class="team-card-socials-bar">
+            <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          </div>
+        </div>
+        <!-- NEW: Dhruv Patil -->
+        <div class="team-card">
+          <div class="team-card-photo" style="background:linear-gradient(160deg,#1e1a2a,#2a2040);">
+            <div class="team-card-photo-initials">DP</div>
+            <div class="team-card-photo-overlay">
+              <div class="team-card-name">Dhruv Patil</div>
+              <div class="team-card-role">Data Analyst & Social Media</div>
             </div>
           </div>
+          <div class="team-card-socials-bar">
+            <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div class="team-social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          </div>
+        </div>
+        <!-- NEW: Ved Redkar -->
+        <div class="team-card">
+          <div class="team-card-photo" style="background:linear-gradient(160deg,#1a201e,#243028);">
+            <div class="team-card-photo-initials">VR</div>
+            <div class="team-card-photo-overlay">
+              <div class="team-card-name">Ved Redkar</div>
+              <div class="team-card-role">Business Analyst & Research</div>
+            </div>
+          </div>
+          <div class="team-card-socials-bar">
+            <div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          </div>
+        </div>
+        <!-- Duplicate set for seamless scroll -->
+        <div class="team-card">
+          <div class="team-card-photo" style="background:linear-gradient(160deg,#1e1e1e,#2d2d2d);">
+            <div class="team-card-photo-initials">AM</div>
+            <div class="team-card-photo-overlay"><div class="team-card-name">Arjun Mehta</div><div class="team-card-role">Founder & Strategy Lead</div></div>
+          </div>
+          <div class="team-card-socials-bar"><div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-card-photo" style="background:linear-gradient(160deg,#1a1e1a,#252e25);">
+            <div class="team-card-photo-initials">PN</div>
+            <div class="team-card-photo-overlay"><div class="team-card-name">Priya Naik</div><div class="team-card-role">Data & POS Analytics</div></div>
+          </div>
+          <div class="team-card-socials-bar"><div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-card-photo" style="background:linear-gradient(160deg,#1a1a1e,#252530);">
+            <div class="team-card-photo-initials">CD</div>
+            <div class="team-card-photo-overlay"><div class="team-card-name">Carlos D'Souza</div><div class="team-card-role">Social Media & Content</div></div>
+          </div>
+          <div class="team-card-socials-bar"><div class="team-social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-card-photo" style="background:linear-gradient(160deg,#1e1a1a,#2e2525);">
+            <div class="team-card-photo-initials">MS</div>
+            <div class="team-card-photo-overlay"><div class="team-card-name">Meera Sharma</div><div class="team-card-role">SEO & Web Manager</div></div>
+          </div>
+          <div class="team-card-socials-bar"><div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-card-photo" style="background:linear-gradient(160deg,#1a1e1e,#25302e);">
+            <div class="team-card-photo-initials">RK</div>
+            <div class="team-card-photo-overlay"><div class="team-card-name">Rohit Kamat</div><div class="team-card-role">Delivery Platform Lead</div></div>
+          </div>
+          <div class="team-card-socials-bar"><div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-card-photo" style="background:linear-gradient(160deg,#1e1a2a,#2a2040);">
+            <div class="team-card-photo-initials">DP</div>
+            <div class="team-card-photo-overlay"><div class="team-card-name">Dhruv Patil</div><div class="team-card-role">Data Analyst & Social Media</div></div>
+          </div>
+          <div class="team-card-socials-bar"><div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-card-photo" style="background:linear-gradient(160deg,#1a201e,#243028);">
+            <div class="team-card-photo-initials">VR</div>
+            <div class="team-card-photo-overlay"><div class="team-card-name">Ved Redkar</div><div class="team-card-role">Business Analyst & Research</div></div>
+          </div>
+          <div class="team-card-socials-bar"><div class="team-social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div></div>
         </div>
       </div>
     </div>
 
-    <!-- Scroll nav dots -->
-    <div class="team-scroll-nav" id="teamDots">
-      <div class="team-dot active" onclick="scrollTeam(0)"></div>
-      <div class="team-dot" onclick="scrollTeam(1)"></div>
-      <div class="team-dot" onclick="scrollTeam(2)"></div>
-    </div>
-
-    <!-- Testimonial -->
     <div class="team-testimonial fade-up">
       <blockquote>"The exceptional support from The White Tiger truly impressed us. We suggested an improvement, and their team implemented it with remarkable speed!"</blockquote>
       <div class="team-testimonial-person">
@@ -1666,64 +1917,16 @@ textarea.form-input { resize: vertical; min-height: 120px; }
     </div>
   </section>
 
-  <!-- CAREERS -->
+  <!-- CAREERS — simplified image 3 style -->
   <section class="careers-section">
     <div class="careers-inner">
       <div class="careers-header fade-up">
         <div class="section-eyebrow" style="text-align:center;">Work With Us</div>
-        <h2 class="careers-title">Join Our Amazing Team</h2>
-        <p class="careers-sub">We're always looking for talented people to join our mission of making Goa's businesses thrive.</p>
       </div>
-      <div class="careers-grid fade-up">
-        <div class="careers-card" onclick="showApply('Social Media Manager')">
-          <div class="careers-card-dept">Content & Social</div>
-          <div class="careers-card-title">Social Media Manager</div>
-          <div class="careers-card-meta"><span>Full-time</span><span>Goa, India</span><span>On-site</span></div>
-          <p class="careers-card-desc">Own the daily content for 10+ client accounts. If you think in captions and dream in reels, we want to talk to you.</p>
-          <a class="careers-card-apply">View & Apply →</a>
-        </div>
-        <div class="careers-card" onclick="showApply('Data Analyst')">
-          <div class="careers-card-dept">Analytics</div>
-          <div class="careers-card-title">Data Analyst</div>
-          <div class="careers-card-meta"><span>Full-time</span><span>Goa, India</span><span>Hybrid</span></div>
-          <p class="careers-card-desc">Dig into POS data, build monthly reports, and surface insights that change how our clients run their businesses.</p>
-          <a class="careers-card-apply">View & Apply →</a>
-        </div>
-        <div class="careers-card" onclick="showApply('SEO & Web Specialist')">
-          <div class="careers-card-dept">Digital Marketing</div>
-          <div class="careers-card-title">SEO & Web Specialist</div>
-          <div class="careers-card-meta"><span>Full-time</span><span>Goa, India</span><span>Hybrid</span></div>
-          <p class="careers-card-desc">Manage and optimise websites for local search. Help Goa's best businesses get found by the people who matter.</p>
-          <a class="careers-card-apply">View & Apply →</a>
-        </div>
-        <div class="careers-card" onclick="showApply('Food Photographer')">
-          <div class="careers-card-dept">Creative</div>
-          <div class="careers-card-title">Food Photographer</div>
-          <div class="careers-card-meta"><span>Freelance</span><span>Goa, India</span><span>Field-based</span></div>
-          <p class="careers-card-desc">Shoot menus, interiors, and lifestyle content for Goa's top hospitality venues. Portfolio required.</p>
-          <a class="careers-card-apply">View & Apply →</a>
-        </div>
-        <div class="careers-card" onclick="showApply('Client Account Manager')">
-          <div class="careers-card-dept">Client Services</div>
-          <div class="careers-card-title">Client Account Manager</div>
-          <div class="careers-card-meta"><span>Full-time</span><span>Goa, India</span><span>On-site</span></div>
-          <p class="careers-card-desc">Be the primary point of contact for 10–15 clients. Monthly calls, strategy updates, and keeping everyone happy.</p>
-          <a class="careers-card-apply">View & Apply →</a>
-        </div>
-        <div class="careers-card" onclick="showApply('Delivery Platform Specialist')">
-          <div class="careers-card-dept">Operations</div>
-          <div class="careers-card-title">Delivery Platform Specialist</div>
-          <div class="careers-card-meta"><span>Full-time</span><span>Goa, India</span><span>Remote-friendly</span></div>
-          <p class="careers-card-desc">Manage Zomato and Swiggy listings end-to-end. Listings, promotions, photography briefs, and weekly optimisation.</p>
-          <a class="careers-card-apply">View & Apply →</a>
-        </div>
-      </div>
-      <div class="careers-join-card fade-up">
-        <div>
-          <h3>Don't see your role?</h3>
-          <p>Send us your CV anyway — we're always growing.</p>
-        </div>
-        <a class="careers-join-btn" onclick="showApply('General Application')">View Open Positions →</a>
+      <div class="careers-cta-card fade-up">
+        <h3>Join Our Amazing Team</h3>
+        <p>We're always looking for talented people to join our mission of making businesses thrive.</p>
+        <a class="careers-cta-btn" onclick="showPage('careers')">View Open Positions →</a>
       </div>
     </div>
   </section>
@@ -1731,11 +1934,70 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   <footer><div class="footer-inner"><div class="footer-top"><div><a class="footer-brand" onclick="showPage('main')"><div class="footer-logomark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-family="'Syne',sans-serif" font-weight="800" font-size="10" fill="white">TWT</text></svg></div><span class="footer-wordmark">The <span>White Tiger</span></span></a><p class="footer-desc">Your business intelligence partner.</p></div><div class="footer-col"><h5>Pages</h5><ul><li><a onclick="showPage('main')">Home</a></li><li><a onclick="showPage('services')">Services</a></li><li><a onclick="showPage('pricing')">Pricing</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 The White Tiger. All rights reserved.</p></div></div></footer>
 </div>
 
+<!-- ════ CAREERS PAGE — standalone ════ -->
+<div id="page-careers" class="page">
+  <div class="page-hero"><div class="container"><div class="page-hero-inner"><div class="section-eyebrow">Work With Us</div><h1>Join Our<br><em>Amazing Team.</em></h1><p>We're always looking for talented people who are passionate about hospitality, data, and building something great.</p></div></div></div>
+  <div class="page-body with-texture"><div class="container">
+    <div class="careers-grid fade-up">
+      <div class="careers-card" onclick="showApply('Social Media Manager')">
+        <div class="careers-card-dept">Content & Social</div>
+        <div class="careers-card-title">Social Media Manager</div>
+        <div class="careers-card-meta"><span>Full-time</span><span>Goa, India</span><span>On-site</span></div>
+        <p class="careers-card-desc">Own the daily content for 10+ client accounts. If you think in captions and dream in reels, we want to talk to you.</p>
+        <a class="careers-card-apply">View & Apply →</a>
+      </div>
+      <div class="careers-card" onclick="showApply('Data Analyst')">
+        <div class="careers-card-dept">Analytics</div>
+        <div class="careers-card-title">Data Analyst</div>
+        <div class="careers-card-meta"><span>Full-time</span><span>Goa, India</span><span>Hybrid</span></div>
+        <p class="careers-card-desc">Dig into POS data, build monthly reports, and surface insights that change how our clients run their businesses.</p>
+        <a class="careers-card-apply">View & Apply →</a>
+      </div>
+      <div class="careers-card" onclick="showApply('SEO & Web Specialist')">
+        <div class="careers-card-dept">Digital Marketing</div>
+        <div class="careers-card-title">SEO & Web Specialist</div>
+        <div class="careers-card-meta"><span>Full-time</span><span>Goa, India</span><span>Hybrid</span></div>
+        <p class="careers-card-desc">Manage and optimise websites for local search. Help the best businesses get found by the people who matter.</p>
+        <a class="careers-card-apply">View & Apply →</a>
+      </div>
+      <div class="careers-card" onclick="showApply('Food Photographer')">
+        <div class="careers-card-dept">Creative</div>
+        <div class="careers-card-title">Food Photographer</div>
+        <div class="careers-card-meta"><span>Freelance</span><span>Goa, India</span><span>Field-based</span></div>
+        <p class="careers-card-desc">Shoot menus, interiors, and lifestyle content for top hospitality venues. Portfolio required.</p>
+        <a class="careers-card-apply">View & Apply →</a>
+      </div>
+      <div class="careers-card" onclick="showApply('Client Account Manager')">
+        <div class="careers-card-dept">Client Services</div>
+        <div class="careers-card-title">Client Account Manager</div>
+        <div class="careers-card-meta"><span>Full-time</span><span>Goa, India</span><span>On-site</span></div>
+        <p class="careers-card-desc">Be the primary point of contact for 10–15 clients. Monthly calls, strategy updates, and keeping everyone happy.</p>
+        <a class="careers-card-apply">View & Apply →</a>
+      </div>
+      <div class="careers-card" onclick="showApply('Delivery Platform Specialist')">
+        <div class="careers-card-dept">Operations</div>
+        <div class="careers-card-title">Delivery Platform Specialist</div>
+        <div class="careers-card-meta"><span>Full-time</span><span>Goa, India</span><span>Remote-friendly</span></div>
+        <p class="careers-card-desc">Manage Zomato and Swiggy listings end-to-end. Listings, promotions, photography briefs, and weekly optimisation.</p>
+        <a class="careers-card-apply">View & Apply →</a>
+      </div>
+    </div>
+    <div class="careers-join-card fade-up">
+      <div>
+        <h3>Don't see your role?</h3>
+        <p>Send us your CV anyway — we're always growing.</p>
+      </div>
+      <a class="careers-join-btn" onclick="showApply('General Application')">Send Your CV →</a>
+    </div>
+  </div></div>
+  <footer><div class="footer-inner"><div class="footer-top"><div><a class="footer-brand" onclick="showPage('main')"><div class="footer-logomark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-family="'Syne',sans-serif" font-weight="800" font-size="10" fill="white">TWT</text></svg></div><span class="footer-wordmark">The <span>White Tiger</span></span></a><p class="footer-desc">Your business intelligence partner.</p></div><div class="footer-col"><h5>Pages</h5><ul><li><a onclick="showPage('main')">Home</a></li><li><a onclick="showPage('about')">About</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 The White Tiger. All rights reserved.</p></div></div></footer>
+</div>
+
 <!-- ════ APPLY PAGE ════ -->
 <div id="page-apply" class="page">
   <div class="apply-page-hero">
     <div class="container">
-      <a class="apply-back" onclick="showPage('about')">
+      <a class="apply-back" onclick="showPage('careers')">
         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
         Back to Careers
       </a>
@@ -1755,7 +2017,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
           <div class="apply-info-item"><div class="apply-info-label">Team</div><div class="apply-info-val" id="applyTeam">—</div></div>
           <div class="apply-info-item"><div class="apply-info-label">Location</div><div class="apply-info-val">Goa, India</div></div>
           <div class="apply-info-item"><div class="apply-info-label">Start date</div><div class="apply-info-val">ASAP</div></div>
-          <div class="apply-info-item"><div class="apply-info-label">What we offer</div><div class="apply-info-val">Competitive salary</div><div class="apply-info-desc">Flexible hours, creative freedom, the chance to build something real in Goa's fastest-growing industry.</div></div>
+          <div class="apply-info-item"><div class="apply-info-label">What we offer</div><div class="apply-info-val">Competitive salary</div><div class="apply-info-desc">Flexible hours, creative freedom, and the chance to build something real in hospitality's fastest-growing space.</div></div>
         </div>
       </div>
       <div class="apply-form-card">
@@ -1781,7 +2043,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
       </div>
     </div>
   </div>
-  <footer><div class="footer-inner"><div class="footer-top"><div><a class="footer-brand" onclick="showPage('main')"><div class="footer-logomark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-family="'Syne',sans-serif" font-weight="800" font-size="10" fill="white">TWT</text></svg></div><span class="footer-wordmark">The <span>White Tiger</span></span></a><p class="footer-desc">Your business intelligence partner.</p></div><div class="footer-col"><h5>Pages</h5><ul><li><a onclick="showPage('main')">Home</a></li><li><a onclick="showPage('about')">Careers</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 The White Tiger. All rights reserved.</p></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div><a class="footer-brand" onclick="showPage('main')"><div class="footer-logomark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-family="'Syne',sans-serif" font-weight="800" font-size="10" fill="white">TWT</text></svg></div><span class="footer-wordmark">The <span>White Tiger</span></span></a><p class="footer-desc">Your business intelligence partner.</p></div><div class="footer-col"><h5>Pages</h5><ul><li><a onclick="showPage('main')">Home</a></li><li><a onclick="showPage('careers')">Careers</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 The White Tiger. All rights reserved.</p></div></div></footer>
 </div>
 
 <!-- ════ CONTACT PAGE ════ -->
@@ -1826,7 +2088,6 @@ function updateNav(name) {
 const mainNav = document.getElementById('main-nav');
 
 function handleNavStyle() {
-  const activePage = document.querySelector('.page.active');
   const scrolled = window.scrollY > 40;
   if (scrolled) {
     mainNav.classList.add('scrolled');
@@ -1921,19 +2182,6 @@ function handleSubscribe(btn) {
     input.style.borderColor = 'var(--orange)';
     input.focus();
   }
-}
-
-// Team scroll
-let teamPos = 0;
-function scrollTeam(pos) {
-  const track = document.getElementById('teamTrack');
-  if (!track) return;
-  const card = track.querySelector('.team-card');
-  const cardW = card ? card.offsetWidth + 20 : 300;
-  const maxPos = 2;
-  teamPos = Math.max(0, Math.min(pos, maxPos));
-  track.style.transform = `translateX(-${teamPos * cardW}px)`;
-  document.querySelectorAll('.team-dot').forEach((d, i) => d.classList.toggle('active', i === teamPos));
 }
 
 // Apply page
